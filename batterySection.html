@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Section</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="battery1-page">
+    <div class="nav-set">
+        <nav class="navbar">
+
+            <div class="logo">
+                ParkEase
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="register.html">Register Car</a></li>
+
+                <li><a href="reports.html">Admin</a></li>
+                <li><a href="batterySection.html" class="battery-link">Battery Section</a></li>
+                <li><a href="tyreClinic.html">Tyre Clinic</a></li>
+                <li><a href="signout.html">Check Out</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span class="user-role">Admin</span>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </div>
+
+        </nav>
+        <div class="dashboard">
+            <div class="battery-page">
+
+                <h1>Battery Service Center</h1>
+
+                <!-- HIRE / BUY SWITCH -->
+                <div class="battery-tabs">
+                    <button class="tab-btn active" onclick="switchTab('hire')">Hire</button>
+                    <button class="tab-btn" onclick="switchTab('buy')">Buy</button>
+                </div>
+
+                <!-- VEHICLE + PRICE SELECTION -->
+                <div class="battery-options">
+
+                    <div class="option-card">
+                        <h3>Select Vehicle Type</h3>
+                        <select id="vehicleType" onchange="updatePrice()">
+                            <option value="">Choose Vehicle</option>
+                            <option value="car">Personal Car</option>
+                            <option value="truck">Truck</option>
+                            <option value="taxi">Taxi</option>
+                            <option value="boda">Boda Boda</option>
+                        </select>
+                    </div>
+
+                    <div class="option-card price-display">
+                        <h3>Service Price</h3>
+                        <p id="priceDisplay">0 UGX</p>
+                    </div>
+
+                </div>
+
+                <!-- CUSTOMER DETAILS CARD -->
+                <div class="battery-form-card">
+
+                    <h2>Customer Details</h2>
+
+                    <form id="batteryForm">
+
+                        <label>Customer Name</label>
+                        <input type="text">
+
+                        <label>Phone Contact</label>
+                        <input type="text">
+
+                        <label>Vehicle Number Plate</label>
+                        <input type="text">
+
+                        <label>Service Fee</label>
+                        <input type="text" id="finalFee" readonly>
+
+                        <button type="submit">Confirm Service</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="receipt-section">
+                <h2>Receipt</h2>
+                <div id="receiptContent">
+                    <p>No receipt generated yet.</p>
+                </div>
+                <div>
+                    <button class="btn-submit">PRINT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="batteryTest.js"></script>
+</body>
+
+</html>

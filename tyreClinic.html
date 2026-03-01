@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyre Clinic</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="tyres-page">
+    <div class="nav-set">
+        <nav class="navbar">
+
+            <div class="logo">
+                ParkEase
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="register.html">Register Car</a></li>
+                <li><a href="reports.html">Admin</a></li>
+                <li><a href="batterySection.html" class="battery-link">Battery Section</a></li>
+                <li><a href="tyreClinic.html" class="tyres-link">Tyre Clinic</a></li>
+                <li><a href="signout.html">Check Out</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span class="user-role">Admin</span>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </div>
+
+        </nav>
+        <div class="dashboard">
+            <div class="tyre-left">
+
+                <h2>Tyre Clinic Service</h2>
+
+                <div class="tyre-options">
+                    <div class="option-card">
+                        <h3>Select Vehicle Type</h3>
+                        <select id="vehicleType">
+                            <option value="">Choose Vehicle</option>
+                            <option value="car">Personal Car</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck</option>
+                            <option value="boda">Boda Boda</option>
+                        </select>
+                    </div>
+
+                    <div class="option-card">
+                        <h3>Select Tyre Size</h3>
+                        <select id="tyreSize">
+                            <option value="">Choose Size</option>
+                            <option>15 inch</option>
+                            <option>17 inch</option>
+                            <option>18 inch</option>
+                            <option>20 inch</option>
+                        </select>
+                    </div>
+
+                    <div class="option-card">
+                        <h3>Select Service</h3>
+                        <select id="serviceType">
+                            <option value="">Choose Service</option>
+                            <option>Pressure Filling</option>
+                            <option>Puncture Fixing</option>
+                            <option>Valve Replacement</option>
+                        </select>
+                    </div>
+
+                    <div class="option-card price-display">
+                        <h3>Total Price</h3>
+                        <p id="priceDisplay">0 UGX</p>
+                    </div>
+
+                </div>
+
+                <!-- CUSTOMER DETAILS -->
+                <div class="tyre-form-card">
+
+                    <h2>Customer Details</h2>
+
+                    <form>
+
+                        <label>Customer Name</label>
+                        <input type="text">
+
+                        <label>Phone Contact</label>
+                        <input type="text">
+
+                        <label>Vehicle Number Plate</label>
+                        <input type="text">
+
+                        <label>Final Amount</label>
+                        <input type="text" readonly>
+
+                        <button type="submit">Confirm Service</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <div class="receipt-section">
+                <h2>Receipt</h2>
+                <div id="receiptContent">
+                    <p>No receipt generated yet.</p>
+                </div>
+                <div>
+                    <button class="btn-submit">PRINT</button>
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
