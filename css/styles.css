@@ -207,7 +207,7 @@ tbody tr:hover {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    min-width: 600px;
+    min-width: 400px;
     flex-grow: 1;
 }
 
