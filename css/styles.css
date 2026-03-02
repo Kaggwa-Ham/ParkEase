@@ -125,8 +125,7 @@ select:focus {
 
 
 .admin-dashboard {
-    padding: 60px;
-    max-width: 1300px;
+    width: 100%;
     margin: auto;
 }
 
