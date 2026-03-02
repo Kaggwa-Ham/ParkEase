@@ -204,7 +204,10 @@ tbody tr:hover {
     background-color: #fffaf0;
 }
 
-
+#vehicleTableBody {
+    width: 100%;
+    padding: 20px;
+}
 
 .nav-set {
     display: flex;
