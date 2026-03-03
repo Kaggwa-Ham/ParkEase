@@ -2,25 +2,25 @@ document.getElementById("signOutForm").addEventListener("submit", function(event
 
     event.preventDefault();
 
-    var receiverName = document.getElementById("receiverName").value;
-    var receiptNumber = document.getElementById("receiptNumber").value;
-    var phoneNumber = document.getElementById("phoneNumber").value;
-    var gender = document.getElementById("gender").value;
-    var ninNumber = document.getElementById("ninNumber").value;
-    var arrivalTime = document.getElementById("arrivalTime").value;
+    let receiverName = document.getElementById("receiverName").value;
+    let receiptNumber = document.getElementById("receiptNumber").value;
+    let phoneNumber = document.getElementById("phoneNumber").value;
+    let gender = document.getElementById("gender").value;
+    let ninNumber = document.getElementById("ninNumber").value;
+    let arrivalTime = document.getElementById("arrivalTime").value;
 
-    var arrivalDate = new Date(arrivalTime);
-    var currentDate = new Date();
+    let arrivalDate = new Date(arrivalTime);
+    let currentDate = new Date();
 
-    var difference = currentDate - arrivalDate;
+    let difference = currentDate - arrivalDate;
 
-    var hoursParked = difference / (1000 * 60 * 60);
+    let hoursParked = difference / (1000 * 60 * 60);
     hoursParked = Math.ceil(hoursParked); 
 
-    var ratePerHour = 2000;
-    var totalAmount = hoursParked * ratePerHour;
+    let ratePerHour = 2000;
+    let totalAmount = hoursParked * ratePerHour;
 
-    var receiptHTML =
+    let receiptHTML =
         "<p><strong>Receiver:</strong> " + receiverName + "</p>" +
         "<p><strong>Receipt No:</strong> " + receiptNumber + "</p>" +
         "<p><strong>Phone:</strong> " + phoneNumber + "</p>" +
