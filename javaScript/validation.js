@@ -18,7 +18,7 @@ form.addEventListener("submit", function(event) {
     message.textContent="";
     let numberPlateInput = numberPlate.value.trim();
     
-    if (driverName !== "Tendani") {
+    if (driverName === "Tendani") {
         message.textContent = "Intruderrrrrrrrr, run for your life";
     } 
     else {
