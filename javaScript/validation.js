@@ -15,12 +15,17 @@ form.addEventListener("submit", function(event) {
     let phoneNumberRegex = /^(?:\+256|0)7\d{8}$/
     let ninNumberRegex = /^[CF][MF]\d{5}[A-Z0-9]{7}$/;
 
+    message.textContent="";
     let numberPlateInput = numberPlate.value.trim();
+    
     if (driverName !== "Tendani") {
         message.textContent = "Intruderrrrrrrrr, run for your life";
-    } else {
-        message.textContent = "Welcome, the 67 king."
-    }
+        if (driverName === "Tendani") {
+            message.textContent = "Welcome, the 67 king."
+            return
+        }
+        return
+    } 
     
     // if (!numberPlateRegex.test(numberPlateInput)){
     //     message.textContent = "Enter valid plate number";
