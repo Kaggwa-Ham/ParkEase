@@ -20,12 +20,10 @@ form.addEventListener("submit", function(event) {
     
     if (driverName !== "Tendani") {
         message.textContent = "Intruderrrrrrrrr, run for your life";
-        if (driverName === "Tendani") {
-            message.textContent = "Welcome, the 67 king."
-            return
-        }
-        return
     } 
+    else {
+        message.textContent = "Welcome the king of 67";
+    }
     
     // if (!numberPlateRegex.test(numberPlateInput)){
     //     message.textContent = "Enter valid plate number";
