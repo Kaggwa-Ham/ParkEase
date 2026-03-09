@@ -786,7 +786,23 @@ tbody tr:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+.registerUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+/* The register User page  */
 
+/* Parkease Attendant Dashboard Components */
 
+body .register-user {
+    background-color: #F9FAFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
 

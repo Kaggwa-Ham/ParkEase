@@ -8,6 +8,8 @@ let arrivalTime = document.getElementById("arrivalTime");
 let phoneNumber = document.getElementById("phoneNumber");
 let ninNumber = document.getElementById("ninNumber");
 let message = document.getElementById("message");
+let message1 = document.getElementById("message1");
+let message2 = document.getElementById("message2");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault()
@@ -16,22 +18,26 @@ form.addEventListener("submit", function(event) {
     let ninNumberRegex = /^[CF][MF]\d{5}[A-Z0-9]{7}$/;
 
     message.textContent="";
-    let numberPlateInput = numberPlate.value.trim();
+    message1.textContent="";
+    // message2.textContent="";
     
-    if (driverName === "Tendani") {
-        message.textContent = "Intruderrrrrrrrr, run for your life";
-    } 
-    else {
-        message.textContent = "Welcome the king of 67";
+    let numberPlateInput = numberPlate.value.trim();
+    if (!numberPlateRegex.test(numberPlateInput)){
+        message.textContent = "Enter valid plate number";
+        message.style.color = "red";
+        return
+    }
+
+    let phoneNumberInput = phoneNumber.value.trim();
+    if (!phoneNumberRegex.test(phoneNumberInput)){
+        message1.textContent = "Enter valid Phone number";
+        message1.className = "error";
+        return
     }
     
-    // if (!numberPlateRegex.test(numberPlateInput)){
-    //     message.textContent = "Enter valid plate number";
-    //     message.style.color = "red";
-    //     return
-    // }
-    
-    // message.textContent = "Plate number is valid";
-    // message.style.color = "green";
+    message2.textContent = "Plate number is valid";
+    message2.className = "success";
 })
 
+
+//Testing smthg
