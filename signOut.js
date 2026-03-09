@@ -8,12 +8,10 @@ document.getElementById("signOutForm").addEventListener("submit", function(event
     let gender = document.getElementById("gender").value;
     let ninNumber = document.getElementById("ninNumber").value;
     let arrivalTime = document.getElementById("arrivalTime").value;
-
+    
     let arrivalDate = new Date(arrivalTime);
     let currentDate = new Date();
-
     let difference = currentDate - arrivalDate;
-
     let hoursParked = difference / (1000 * 60 * 60);
     hoursParked = Math.ceil(hoursParked); 
 

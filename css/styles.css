@@ -804,5 +804,9 @@ body .register-user {
     min-height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    padding: 100px;
 }
 
+#attendantForm {
+    max-width: 600px;
+}
