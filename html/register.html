@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error {
+            color: red;
+            border-bottom: 2px solid red;
+            display: block !important;
+        }
+
+        .success {
+            color: green;
+            border-bottom: 2px solid green;
+        }
+    </style>
+</head>
+
+<body class="register-page">
+    <div class="nav-set">
+        <nav class="navbar">
+
+            <div class="logo">
+                ParkEase
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="register.html" class="register-link">Register Vehicle</a></li>
+
+                <li><a href="reports.html">Admin</a></li>
+                <li><a href="batterySection.html">Battery Section</a></li>
+                <li><a href="tyreClinic.html">Tyre Clinic</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="signOut.html">Check Out</a></li>
+
+            </ul>
+
+            <div class="nav-right">
+                <span class="user-role">Admin</span>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </div>
+
+        </nav>
+        <div class="form-card">
+            <h2>Vehicle Registration</h2>
+
+            <form id="registrationForm">
+                <label for="driverName">Driver Name</label>
+                <input type="text" id="driverName" name="driverName">
+                <p id="message"></p>
+
+                <div>
+                    <label for="numberPlate">Number Plate</label>
+                    <p id="message1"></p>
+                    <input type="text" id="numberPlate" name="numberPlate">
+                </div>
+
+
+                <label for="vehicleModel">Vehicle Model</label>
+                <input type="text" id="vehicleModel" name="vehicleModel">
+                <p id="message2"></p>
+
+                <label for="vehicleColor">Vehicle Color</label>
+                <input type="text" id="vehicleColor" name="vehicleColor">
+                <p id="message3"></p>
+
+                <label for="arrivalTime">Arrival Time</label>
+                <input type="time" id="arrivalTime" name="arrivalTime">
+                <p id="message4"></p>
+
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+                <p id="message5"></p>
+
+
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber">
+                <p id="message6"></p>
+
+
+                <label for="ninNumber">NIN Number (Required for Boda Bodas)</label>
+                <input type="text" id="ninNumber" name="ninNumber">
+                <p id="message7"></p>
+
+
+                <label for="vehicleType">Vehicle Type</label>
+                <select id="vehicleType" name="vehicleType">
+                    <option value="">-- Select Vehicle Type --</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Personal Car">Personal Car</option>
+                    <option value="Taxi">Taxi</option>
+                    <option value="Coaster">Coaster</option>
+                    <option value="Boda Boda">Boda Boda</option>
+                </select>
+                <p id="message8"></p>
+
+
+                <button type="submit" class="btn-submit">Register Vehicle</button>
+                <h2 id="message3"></h2>
+            </form>
+        </div>
+    </div>
+    <script src="javaScript/validation.js"></script>
+</body>
+
+</html>

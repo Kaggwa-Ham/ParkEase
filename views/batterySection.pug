@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Battery Section
+  link(rel='stylesheet' href='css/styles.css')
+.nav-set
+  nav.navbar
+    .logo
+      | ParkEase
+    ul.nav-links
+      li
+        a(href='register.html') Register Car
+      li
+        a(href='reports.html') Admin
+      li
+        a.battery-link(href='batterySection.html') Battery Section
+      li
+        a(href='tyreClinic.html') Tyre Clinic
+      li
+        a(href='dashboard.html') Dashboard
+      li
+        a(href='signOut.html') Check Out
+    .nav-right
+      span.user-role Admin
+      a.logout-btn(href='index.html') Logout
+  .dashboard
+    .battery-page
+      h1 Battery Service Center
+      // HIRE / BUY SWITCH
+      .battery-tabs
+        button.tab-btn.active(onclick="switchTab('hire')") Hire
+        button.tab-btn(onclick="switchTab('buy')") Buy
+      // VEHICLE + PRICE SELECTION
+      .battery-options
+        .option-card
+          h3 Select Vehicle Type
+          select#vehicleType(onchange='updatePrice()')
+            option(value='') Choose Vehicle
+            option(value='car') Personal Car
+            option(value='truck') Truck
+            option(value='taxi') Taxi
+            option(value='boda') Boda Boda
+        .option-card.price-display
+          h3 Service Price
+          p#priceDisplay 0 UGX
+      // CUSTOMER DETAILS CARD
+      .battery-form-card
+        h2 Customer Details
+        form#batteryForm
+          label Customer Name
+          input(type='text')
+          label Phone Contact
+          input(type='text')
+          label Vehicle Number Plate
+          input(type='text')
+          label Service Fee
+          input#finalFee(type='text' readonly='')
+          button(type='submit') Confirm Service
+    .receipt-section
+      h2 Receipt
+      #receiptContent
+        p No receipt generated yet.
+      div
+        button.btn-submit PRINT
+script(src='javaScript/batterySection.js')

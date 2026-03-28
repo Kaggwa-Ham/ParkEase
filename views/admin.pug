@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title The Reports
+  link(rel='stylesheet' href='css/styles.css')
+.nav-set
+  nav.navbar
+    .logo
+      | ParkEase
+    ul.nav-links
+      li
+        a(href='register.html') Register Car
+      li
+        a.admin-link(href='reports.html') Admin
+      li
+        a(href='batterySection.html') Battery Section
+      li
+        a(href='tyreClinic.html') Tyre Clinic
+      li
+        a(href='dashboard.html') Dashboard
+      li
+        a(href='signOut.html') Check Out
+    .nav-right
+      span.user-role Admin
+      a.logout-btn(href='index.html') Logout
+  .admin-dashboard
+    .admin-dashboard1
+      .registerUser
+        h1 Administrator Dashboard
+        a(href='registerUser.html')
+          button.btn-submit Register User
+      .summary-cards
+        .card
+          h3 Parking Revenue
+          p#parkingTotal 0 UGX
+        .card
+          h3 Battery Section
+          p#batteryTotal 0 UGX
+        .card
+          h3 Tyre Clinic
+          p#tyreTotal 0 UGX
+        .card.grand
+          h3 Total Revenue
+          p#grandTotal 0 UGX
+      .table-section
+        h2 All Vehicles
+        table
+          thead
+            tr
+              th Number Plate
+              th Vehicle Type
+              th Check In
+              th Status
+              th Parking Fee
+              th Battery Hire
+              th Tyre Clinic
+          tbody#vehicleTableBody
+script(src='javaScript/report.js')

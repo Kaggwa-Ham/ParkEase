@@ -1,0 +1,76 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Tyre Clinic
+  link(rel='stylesheet' href='css/styles.css')
+.nav-set
+  nav.navbar
+    .logo
+      | ParkEase
+    ul.nav-links
+      li
+        a(href='register.html') Register Car
+      li
+        a(href='reports.html') Admin
+      li
+        a.battery-link(href='batterySection.html') Battery Section
+      li
+        a.tyres-link(href='tyreClinic.html') Tyre Clinic
+      li
+        a(href='dashboard.html') Dashboard
+      li
+        a(href='signOut.html') Check Out
+    .nav-right
+      span.user-role Admin
+      a.logout-btn(href='index.html') Logout
+  .dashboard
+    .tyre-left
+      h2 Tyre Clinic Service
+      .tyre-options
+        .option-card
+          h3 Select Vehicle Type
+          select#vehicleType
+            option(value='') Choose Vehicle
+            option(value='car') Personal Car
+            option(value='suv') SUV
+            option(value='truck') Truck
+            option(value='boda') Boda Boda
+        .option-card
+          h3 Select Tyre Size
+          select#tyreSize
+            option(value='') Choose Size
+            option 15 inch
+            option 17 inch
+            option 18 inch
+            option 20 inch
+        .option-card
+          h3 Select Service
+          select#serviceType
+            option(value='') Choose Service
+            option Pressure Filling
+            option Puncture Fixing
+            option Valve Replacement
+        .option-card.price-display
+          h3 Total Price
+          p#priceDisplay 0 UGX
+      // CUSTOMER DETAILS
+      .tyre-form-card
+        h2 Customer Details
+        form
+          label Customer Name
+          input(type='text')
+          label Phone Contact
+          input(type='text')
+          label Vehicle Number Plate
+          input(type='text')
+          label Final Amount
+          input(type='text' readonly='')
+          button(type='submit') Confirm Service
+    .receipt-section
+      h2 Receipt
+      #receiptContent
+        p No receipt generated yet.
+      div
+        button.btn-submit PRINT
+  script(src='javaScript/tyreClinic.js')

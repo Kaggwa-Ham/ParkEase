@@ -1,0 +1,76 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Registration
+  link(rel='stylesheet' href='css/styles.css')
+  style.
+    .error {
+    color: red;
+    border-bottom: 2px solid red;
+    display: block !important;
+    }
+    .success {
+    color: green;
+    border-bottom: 2px solid green;
+    }
+.nav-set
+  nav.navbar
+    .logo
+      | ParkEase
+    ul.nav-links
+      li
+        a.register-link(href='register.html') Register Vehicle
+      li
+        a(href='reports.html') Admin
+      li
+        a(href='batterySection.html') Battery Section
+      li
+        a(href='tyreClinic.html') Tyre Clinic
+      li
+        a(href='dashboard.html') Dashboard
+      li
+        a(href='signOut.html') Check Out
+    .nav-right
+      span.user-role Admin
+      a.logout-btn(href='index.html') Logout
+  .form-card
+    h2 Vehicle Registration
+    form#registrationForm
+      label(for='driverName') Driver Name
+      input#driverName(type='text' name='driverName')
+      p#message
+      div
+        label(for='numberPlate') Number Plate
+        p#message1
+        input#numberPlate(type='text' name='numberPlate')
+      label(for='vehicleModel') Vehicle Model
+      input#vehicleModel(type='text' name='vehicleModel')
+      p#message2
+      label(for='vehicleColor') Vehicle Color
+      input#vehicleColor(type='text' name='vehicleColor')
+      p#message3
+      label(for='arrivalTime') Arrival Time
+      input#arrivalTime(type='time' name='arrivalTime')
+      p#message4
+      label(for='date') Date
+      input#date(type='date' name='date')
+      p#message5
+      label(for='phoneNumber') Phone Number
+      input#phoneNumber(type='tel' name='phoneNumber')
+      p#message6
+      label(for='ninNumber') NIN Number (Required for Boda Bodas)
+      input#ninNumber(type='text' name='ninNumber')
+      p#message7
+      label(for='vehicleType') Vehicle Type
+      select#vehicleType(name='vehicleType')
+        option(value='') -- Select Vehicle Type --
+        option(value='Truck') Truck
+        option(value='Personal Car') Personal Car
+        option(value='Taxi') Taxi
+        option(value='Coaster') Coaster
+        option(value='Boda Boda') Boda Boda
+      p#message8
+      button.btn-submit(type='submit') Register Vehicle
+      h2#message3
+script(src='javaScript/validation.js')

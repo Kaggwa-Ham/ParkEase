@@ -1,0 +1,32 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Park Ease Project
+  link(rel='stylesheet' href='css/styles.css')
+  // <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato&display=swap' rel='stylesheet')
+//
+  <a href="register.html">Click Me</a>
+  <a href="signOut.html">SIGN OUT</a>
+  <a href="reports.html">REPORTS</a>
+.container
+  form#loginForm.form-card
+    h2 PLEASE SIGN IN
+    .input-group
+      label(for='email') Email address / Contact
+      input#userName(type='text')
+    .input-group
+      label(for='password') Password
+      input#password(type='password')
+    button.btn-submit(type='submit')
+      a(href='register.html') SUBMIT
+    .form-footer
+      p
+        | Don&apos;t have an account? 
+        a(href='#') Sign Up
+    .forgot
+      a(href='register.html') Forgot Password?
+script(src='javaScript/signIn.js')
