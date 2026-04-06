@@ -9,6 +9,15 @@ const batteryRegistration = new mongoose.Schema({
     },
     batteryImage: {
         type: String
+    },
+    status: {
+        type: String,
+        enum: ["Available", "Hired", "Sold"],
+        default: "Available"
+    },
+    dateAdded: {
+        type: Date,
+        default: Date.now
     }
 });
 
