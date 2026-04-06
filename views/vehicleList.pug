@@ -1,0 +1,35 @@
+extends layout 
+block content      
+    table
+            thead
+            tr
+                th Image
+                th driverName
+                th phoneNumber
+                th vehicleType
+                th numberPlate
+                th vehicleModel
+                th vehicleColor
+                th arrivalDate
+                th arrivalTime
+                th status
+            tbody
+                if vehicles.length 
+                    each vehicle in vehicles 
+                        tr
+                            td
+                                img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "150px" height = "170px")
+                            td #{vehicle.driverName}
+                            td #{vehicle.phoneNumber}
+                            td #{vehicle.vehicleType}
+                            td #{vehicle.numberPlate}
+                            td #{vehicle.vehicleModel}
+                            td #{vehicle.vehicleColor}
+                            td #{vehicle.arrivalDate}
+                            td #{vehicle.arrivalTime}
+                            td #{vehicle.status}
+                else 
+                    tr 
+                        td No vehicles found
+                            
+
