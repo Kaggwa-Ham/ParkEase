@@ -1,0 +1,124 @@
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   title Vehicle Registration - ParkEase
+//-   link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet')
+//-   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css')
+//-   style.
+//-     body {
+//-     background-color: #f4f7f6;
+//-     }
+//-     /* Smooth transition for the NIN field */
+//-     #ninContainer {
+//-     transition: all 0.3s ease-in-out;
+//-     }
+//- .container.min-vh-100.d-flex.justify-content-center.align-items-center.py-5
+//-   .card.shadow-lg.border-0.rounded-4(style='width: 100%; max-width: 700px;')
+//-     .card-header.bg-primary.text-white.text-center.py-4.rounded-top-4
+//-       h3.mb-0
+//-         i.bi.bi-car-front-fill.me-2
+//-         | Vehicle Registration
+//-       p.mb-0.small.text-white-50 Register vehicles on arrival [cite: 22]
+//-     .card-body.p-4.p-md-5
+//-       form#vehicleRegistrationForm(method='post' action='/registerVehicle' enctype='multipart/form-data')
+//-         h5.text-primary.mb-3.border-bottom.pb-2 Driver Details
+//-         .row.mb-4
+//-           .col-md-6.mb-3.mb-md-0
+//-             label.form-label.fw-semibold(for='driverName') Driver Name
+//-             input#driverName.form-control(type='text' placeholder='e.g. John Doe' name='driverName')
+//-           .col-md-6
+//-             label.form-label.fw-semibold(for='phoneNumber') Phone Number
+//-             input#phoneNumber.form-control(type='tel' placeholder='07XX XXXXXX' name='phoneNumber')
+//-         h5.text-primary.mb-3.border-bottom.pb-2 Vehicle Details
+//-         .row.mb-3
+//-           .col-md-6.mb-3.mb-md-0
+//-             label.form-label.fw-semibold(for='vehicleType') Vehicle Type
+//-             select#vehicleType.form-select(name='vehicleType')
+//-               option(value='' selected='' disabled='') Select type...
+//-               option(value='Truck') Truck
+//-               option(value='Personal Car') Personal Car
+//-               option(value='Taxi') Taxi
+//-               option(value='Coaster') Coaster
+//-               option(value='Boda-boda') Boda-boda
+//-           .col-md-6
+//-             label.form-label.fw-semibold(for='numberPlate') Number Plate
+//-             input#numberPlate.form-control(type='text' placeholder='e.g. UAB 123C' name='numberPlate')
+//-         .row.mb-3
+//-           .col-md-6.mb-3.mb-md-0
+//-             label.form-label.fw-semibold(for='vehicleImage') Vehicle Image
+//-             input#vehicleImage.form-control(type='file' name='vehicleImage')
+//-           .col-md-3
+//-             label.form-label.fw-semibold(for='vehicleColor') Vehicle Color
+//-             input#vehicleColor.form-control(type='text' placeholder='e.g. White' name='vehicleColor')
+//-           .col-md-3.mb-3.mb-md-0
+//-             label.form-label.fw-semibold(for='vehicleModel') Vehicle Model
+//-             input#vehicleModel.form-control(type='text' placeholder='e.g. Toyota Hilux' name='vehicleModel')
+//-         #ninContainer.mb-4(style='display: none;')
+//-           label.form-label.fw-semibold.text-danger(for='ninNumber') NIN Number (Required for Boda-bodas)
+//-           input#ninNumber.form-control.border-danger(type='text' placeholder='Enter valid NIN' name='ninNumber')
+//-         h5.text-primary.mb-3.border-bottom.pb-2.mt-4 Arrival Information
+//-         .row.mb-4
+//-           .col-md-6.mb-3.mb-md-0
+//-             label.form-label.fw-semibold(for='arrivalDate') Arrival Date
+//-             input#arrivalDate.form-control(type='date' name='arrivalDate')
+//-           .col-md-6
+//-             label.form-label.fw-semibold(for='arrivalTime') Arrival Time
+//-             input#arrivalTime.form-control(type='time' name='arrivalTime')
+//-         button.btn.btn-primary.w-100.py-2.fw-bold.rounded-3.mt-3(type='submit')
+//-           i.bi.bi-check-circle.me-2
+//-           | Register Vehicle
+extends layout
+block content 
+  .dashboard
+  div
+    div
+      h3 Vehicle Registration
+      p Register vehicles on arrival
+    form#vehicleRegistrationForm(method='post' action='/registerVehicle' enctype='multipart/form-data')
+      h5 Driver Details
+      div
+        div
+          label(for='driverName') Driver Name
+          input#driverName(type='text' name='driverName')
+        div
+          label(for='phoneNumber') Phone Number
+          input#phoneNumber.form-control(type=' tel'  name='phoneNumber')
+      h5 Vehicle Details
+      div
+        div
+          label(for='vehicleType') Vehicle Type
+          select#vehicleType.form-select(name='vehicleType')
+            option(value='' selected='' disabled='') Select type...
+            option(value='Truck') Truck
+            option(value='Personal Car') Personal Car
+            option(value='Taxi') Taxi
+            option(value='Coaster') Coaster
+            option(value='Boda-boda') Boda-boda
+        div
+          label(for='numberPlate') Number Plate
+          input#numberPlate.form-control(type='text' name='numberPlate')
+      div
+        div
+          label(for='vehicleModel') Vehicle Model
+          input#vehicleModel.form-control(type='text' name='vehicleModel')
+          label.form-label(for='vehicleImage') Vehicle Image
+          input#vehicleImage.form-control(type='file' name='vehicleImage')
+        div
+          label(for='vehicleColor') Vehicle Color
+          input#vehicleColor.form-control(type='text'  name='vehicleColor')
+      #ninContainer
+        label.form-label.fw-semibold.text-danger(for='ninNumber')
+          | NIN Number (Required for
+          | Boda-bodas)
+        input#ninNumber(type='text' name='ninNumber')
+      div
+        //- div
+        //-   label(for='arrivalDate') Arrival Date
+        //-   input#arrivalDate.form-control(type='date' name='arrivalDate')
+        //- div
+        //-   label(for='arrivalTime') Arrival Time
+        //-   input#arrivalTime.form-control(type='time' name='arrivalTime')
+      button.btn-submit(type='submit')
+        | Register Vehicle
+  script(src="/js/vehicleRegister.js") 

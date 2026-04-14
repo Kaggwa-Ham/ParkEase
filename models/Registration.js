@@ -20,7 +20,7 @@ const registrationSchema = new mongoose.Schema({
   },
   role: {
     type: String
-  },
+  }
 });
 registrationSchema.plugin(passportLocalMongoose, {usernameField: "email"})
 

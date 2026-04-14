@@ -1,52 +1,13 @@
-doctype html
-head
-  title ParkEase Dashboard
-  link(rel='stylesheet' href='css/styles.css')
-.nav-set
-  nav.navbar
-    .logo
-      | ParkEase
-    ul.nav-links
-      li
-        a(href='register.html') Register Car
-      li
-        a(href='reports.html') Admin
-      li
-        a(href='batterySection.html') Battery Section
-      li
-        a(href='tyreClinic.html') Tyre Clinic
-      li
-        a(href='dashboard.html') Dashboard
-      li
-        a.signOut-link(href='signOut.html') Check Out
-    .nav-right
-      span.user-role Admin
-      a.logout-btn(href='index.html') Logout
-  .dashboard
-    .form-section
-      h2 Car Sign Out
-      form#signOutForm
-        label Receiver Name
-        input#receiverName(type='text')
-        label Role
-        input#dashboardRole(type='text')
-        label Receipt Number
-        input#receiptNumber(type='text')
-        label Phone Number
-        input#phoneNumber(type='text')
-        label Gender
-        select#gender
-          option Male
-          option Female
-        label NIN Number
-        input#ninNumber(type='text')
-        label Arrival Time
-        input#arrivalTime(type='datetime-local')
-        button.btn-submit(type='submit') Generate Receipt
-    .receipt-section
-      h2 Receipt
-      #receiptContent
-        p No receipt generated yet.
-      div
-        button.btn-submit PRINT
-script(src='javaScript/signOut.js')
+extends layout
+block content 
+  .container.min-vh-100.d-flex.justify-content-center.align-items-center
+    .card.shadow-lg.border-0.rounded-4(style='width: 100%; max-width: 450px;')
+      .card-body.p-5
+        h2.text-center.fw-bold.mb-2 Vehicle Signout
+        p.text-center.text-muted.mb-4 Please enter your receipt to process your signout
+        form(method='post' action='/signout/verify')
+          .mb-3
+            label.form-label.fw-semibold(for='receiptNumber') Receipt Number
+            input#receiptNumber.form-control(type='text' placeholder="RCPT-abcd" name='receiptNumber')
+          button.btn.btn-primary.w-100.py-2.fw-bold.rounded-3(type='submit') Verify Receipt
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')

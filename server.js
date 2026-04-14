@@ -20,7 +20,7 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 
 // 2.Instantiations
 const app = express();
-const PORT = 3003;
+const PORT = 3002;
 
 // 3.Configurations
 //Mongodb settings- setting up connections to the database.

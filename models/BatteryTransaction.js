@@ -11,9 +11,6 @@ const batteryTransactionSchema = new mongoose.Schema({
         type: String,
         enum: ["Hire", "Sale"],
     },
-    amountPaid: {
-        type: Number
-    },
     transactionDate: {
         type: Date,
         default: Date.now

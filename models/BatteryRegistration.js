@@ -10,6 +10,9 @@ const batteryRegistration = new mongoose.Schema({
     batteryImage: {
         type: String
     },
+    amountPaid: {
+        type: Number
+    },
     status: {
         type: String,
         enum: ["Available", "Hired", "Sold"],
