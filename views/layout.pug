@@ -8,46 +8,49 @@ head
   link(rel='stylesheet' href='/css/style.css')
 body.dashboard-page
   div.nav-set
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      .container-fluid
-        a.navbar-brand(href='/auth/login') ParkEase
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.navbar-nav.me-auto.mb-2.mb-lg-0
-            li.nav-item
-              a.nav-link(href="/") Home
-            if user 
-              if user.role === "Admin"
-                li.nav-item 
-                  a.nav-link(href="/admin") Dashboard
-                li.nav-item 
-                  a.nav-link(href="/usersList") Manage Users
-              if user.role === "Manager"
-                li.nav-item 
-                  a.nav-link(href="/manager") Dashboard
-                li.nav-item 
-                  a.nav-link(href="/registerBattery") Add Battery 
-                li.nav-item 
-                  a.nav-link(href="/batteryServices") Battery Transaction
-                li.nav-item 
-                  a.nav-link(href="/tyreServices") Tyre Clinic
-              if user.role === "Attendant"
-                li.nav-item 
-                  a.nav-link(href="/attendant") Dashboard
-                li.nav-item 
-                  a.nav-link(href="/registerVehicle") Check in
-                  li.nav-item 
-                  a.nav-link(href="/signout") Check out
-          div.d-flex.ms-lg-3.align-items-center
-            if user 
-              span.text-light.me-3.small 
-                i.fa-solid.fa-user-circle.me-1 
-                | Hi, #{user.firstName}
-                span.badge.bg-secondary.ms-1 #{user.role}
-              a.btn.btn-outline-danger.btn-sm.fw-bold(href="/auth/logout") Log Out
-            else 
-              a.btn.btn-outline.light.me-2(href="/auth/login") Log in
+    nav.navbar
+      .logo
+        | ParkEase
+      ul.nav-links
+        li
+          a(href='/') Home
+          if user 
+            if user.role === "Admin"
+              li
+                a(href="/admin") Dashboard
+              li 
+                a(href="/usersList") Manage Users
+            if user.role === "Manager"
+              li 
+                a(href="/manager") Dashboard
+              li 
+                a(href="/registerBattery") Add Battery 
+              li 
+                a(href="/batteryServices") Battery Transaction
+              li 
+                a(href="/tyreServices") Tyre Clinic
+            if user.role === "Attendant"
+              li 
+                a(href="/attendant") Dashboard
+              li 
+                a(href="/registerVehicle") Check in
+              li 
+                a(href="/signout") Check out
+      .nav-right
+        if user 
+          div.profile
+            i.fa-solid.fa-user-circle.me-1 
+            | Hi #{user.firstName}: #{user.role}
+          div
+            ul.nav-links
+              li 
+                a(href="/auth/logout") Log Out
+        else
+          ul.nav-links
+            li
+              a(href="/auth/login") Log in
     block content
   br 
   footer.bg-dark.text-white.py-4.mt-auto 
     .container.text-center 
-    p.mb-0 &copy;  2026 Hello World System. All Rights Reserved
+    p.mb-0 &copy;  2026 Kaggwa Ham @ParkEase. All Rights Reserved

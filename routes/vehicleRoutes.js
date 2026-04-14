@@ -25,11 +25,11 @@ let upload = multer({ storage: storage })
 
 
 //Routing
-router.get('/registerVehicle', isAttendant, (req, res) => {
+router.get('/registerVehicle', (req, res) => {
     res.render('register-vehicle');
 });
 
-router.post('/registerVehicle', upload.single('vehicleImage'), isAttendant, async (req, res) => {
+router.post('/registerVehicle', upload.single('vehicleImage'), async (req, res) => {
     try {
         const uniqueTicket = "Rcpt-" + crypto.randomBytes(3).toString("hex").toUpperCase();
         const newVehicle = new Vehicle({
@@ -60,7 +60,7 @@ router.post('/registerVehicle', upload.single('vehicleImage'), isAttendant, asyn
 
 //Update vehicle routes
 //Show the update form
-router.get("/vehicles/update/:id", isAttendant, async (req, res) => {
+router.get("/vehicles/update/:id", async (req, res) => {
     try {
         const vehicle = await Vehicle.findById(req.params.id)
         if (!vehicle) return res.redirect("/vehicleList")
@@ -70,7 +70,7 @@ router.get("/vehicles/update/:id", isAttendant, async (req, res) => {
     }
 })
 
-router.post("/vehicles/update/:id", isAttendant, async (req, res) => {
+router.post("/vehicles/update/:id", async (req, res) => {
     try {
         await Vehicle.findByIdAndUpdate(req.params.id, req.body);
         res.redirect("/vehicleList")
@@ -79,11 +79,11 @@ router.post("/vehicles/update/:id", isAttendant, async (req, res) => {
     }
 })
 
-router.get("/signout", isAttendant, (req, res) => {
+router.get("/signout", (req, res) => {
     res.render("signout")
 })
 
-router.post("/signout/verify", isAttendant, async (req, res) => {
+router.post("/signout/verify", async (req, res) => {
     try {
         const vehicle = await Vehicle.findOne({ receiptNumber: req.body.receiptNumber, status: "Parked" })
         if (!vehicle) {
@@ -96,7 +96,7 @@ router.post("/signout/verify", isAttendant, async (req, res) => {
     }
 });
 
-router.post("/signout/confirm", isAttendant, async (req, res) => {
+router.post("/signout/confirm", async (req, res) => {
     try {
         const newSignout = new Signout(req.body)
         const savedSignedout = await newSignout.save();
@@ -107,7 +107,7 @@ router.post("/signout/confirm", isAttendant, async (req, res) => {
     }
 });
 
-router.get("/signout/receipt/:id", isAttendant, async (req, res) => {
+router.get("/signout/receipt/:id", async (req, res) => {
     try {
         const record = await Signout.findById(req.params.id).populate("vehicleId")
         if(!record) {

@@ -33,7 +33,7 @@ router.get("/admin", async (req, res) => {
   }
 })
 
-router.get("/usersList", isAdmin, async (req, res) => {
+router.get("/usersList", async (req, res) => {
   try {
     let users = await Registration.find().sort({ $natural: -1 })
     res.render("usersList", { users });
@@ -43,11 +43,11 @@ router.get("/usersList", isAdmin, async (req, res) => {
 })
 
 
-router.get("/signout", isAttendant, (req, res) => {
+router.get("/signout", (req, res) => {
   res.render("vehicleSignout");
 });
 
-router.get("/attendant", isAttendant, async (req, res) => {
+router.get("/attendant", async (req, res) => {
   try {
     let vehicles = await Vehicle.find({ status: "Parked" }).sort({ $natural: -1 })
     res.render("attendant", { vehicles })

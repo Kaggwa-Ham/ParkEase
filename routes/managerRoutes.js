@@ -20,11 +20,11 @@ let storage = multer.diskStorage({
 })
 let upload = multer({ storage: storage })
 
-router.get("/registerBattery", isManager, (req, res) => {
+router.get("/registerBattery", (req, res) => {
     res.render("battery");
 });
 
-router.post("/registerBattery", upload.single('batteryImage'), isManager, async (req, res) => {
+router.post("/registerBattery", upload.single('batteryImage'), async (req, res) => {
     console.log("reached here");
     try {
         const newBattery = new Battery(req.body);
@@ -38,7 +38,7 @@ router.post("/registerBattery", upload.single('batteryImage'), isManager, async 
     }
 });
 
-router.get("/manager", isManager, async (req, res) => {
+router.get("/manager", async (req, res) => {
     try {
         let batteries = await Battery.find({status: "Available"}).sort({ natural: -1 })
 

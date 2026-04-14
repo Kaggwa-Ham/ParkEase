@@ -24,44 +24,42 @@ block content
         button.btn-submit Register Vehicle
       a(href='/signout')
         button.btn-submit Vehicle Sign Out
-    // TABLE
-    .table-container
-      table
-          thead
-              tr
-                  th Image
-                  th Driver Name
-                  th Phone Number
-                  th Vehicle Type
-                  th Number Plate
-                  th Vehicle Model
-                  th Vehicle Color
-                  th Arrival Time
-                  th Status
-                  th Receipt Number
-                  th Action
-          tbody
-              if vehicles.length 
-                  each vehicle in vehicles 
-                      tr
-                          td
-                              img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "150px" height = "170px")
-                          td #{vehicle.driverName}
-                          td #{vehicle.phoneNumber}
-                          td #{vehicle.vehicleType}
-                          td #{vehicle.numberPlate}
-                          td #{vehicle.vehicleModel}
-                          td #{vehicle.vehicleColor}
-                          td #{vehicle.arrivalTime}
-                          td #{vehicle.status}  
-                          td #{vehicle.receiptNumber} 
-                          td 
-                            button.btn.btn-sm.btn-outline-primary(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 
-                              i.fa-solid.fa-copy.me-1 
-                              | Copy      
-              else 
-                  tr 
-                      td No vehicles found
+  table
+      thead
+          tr
+              th Image
+              th Driver Name
+              th Phone Number
+              th Vehicle Type
+              th Number Plate
+              th Vehicle Model
+              th Vehicle Color
+              th Arrival Time
+              th Status
+              th Receipt Number
+              th Action
+      tbody
+          if vehicles.length 
+              each vehicle in vehicles 
+                  tr
+                      td
+                          img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "150px" height = "170px")
+                      td #{vehicle.driverName}
+                      td #{vehicle.phoneNumber}
+                      td #{vehicle.vehicleType}
+                      td #{vehicle.numberPlate}
+                      td #{vehicle.vehicleModel}
+                      td #{vehicle.vehicleColor}
+                      td #{vehicle.arrivalTime}
+                      td #{vehicle.status}  
+                      td #{vehicle.receiptNumber} 
+                      td 
+                        button.btn.btn-sm.btn-outline-primary(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 
+                          i.fa-solid.fa-copy.me-1 
+                          | Copy      
+          else 
+              tr 
+                  td No vehicles found
          
   script(src='javaScript/dashboard.js')
   

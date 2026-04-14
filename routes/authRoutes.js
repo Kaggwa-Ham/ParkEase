@@ -6,11 +6,11 @@ const { isAdmin } = require("../middleware/auth");
 //import database file/ import registration model
 const Registration = require("../models/Registration");
 
-router.get("/signup", isAdmin, (req, res) => {
+router.get("/signup", (req, res) => {
   res.render("signUp");
 });
 
-router.post("/signup", isAdmin, async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
     const newUser = new Registration(req.body);
