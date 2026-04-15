@@ -1,0 +1,30 @@
+extends layout
+block content
+    div.form-card
+        form(method='post' action='/users/update/' + user._id)
+            div.userDetails
+                h2 Update User
+                p.underline
+                div 
+                    label(for='firstName') First Name
+                    input(type='text' placeholder='James' name='firstName' value=user.firstName)
+                div
+                    label(for='lastName') Last Name
+                    input(type='text' placeholder='Kisakye' name='lastName' value=user.lastName)
+                div
+                    label(for='email') Email Address
+                    input(type='email' placeholder='name@gmail.com' name='email' value=user.email)
+                div
+                    label(for='phone') Phone Number
+                    input(type='tel' placeholder='+256 700 000000' name='phoneNumber' value=user.phoneNumber)
+                div
+                    label(for='role') Role
+                    select#role(name="role")
+                        option(value="" selected='' disabled='') Select role 
+                        option(value="Admin" selected=user.role === "Admin") Admin 
+                        option(value="Manager" selected=user.role === "Manager") Manager 
+                        option(value="Attendant" selected=user.role === "Attendant") Attendant   
+            button.btn-submit(type='submit') Update User
+
+            
+

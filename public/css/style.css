@@ -95,19 +95,19 @@ table {
     margin-top: 20px;
     height: 80vh;
     width: 90%;
-    border: 2px solid black;
+    border: 2px solid #e99241;
 
 }
 
 thead {
-    background: #ff7a00;
+    background: #f97316;
 }
 
 th,
 td {
     padding: 13px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e99241;
 }
 
 tbody tr:hover {
@@ -486,7 +486,8 @@ body .register-user {
 
 .driverDetails,
 .vehicleDetails,
-.attendantDetails {
+.attendantDetails,
+.userDetails {
     border: 2px solid #e56700;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -530,7 +531,7 @@ body .register-user {
     width: 600px;
 }
 
-.receiptIntro{
+.receiptIntro {
     text-align: center;
 }
 
@@ -540,13 +541,16 @@ body .register-user {
     body * {
         visibility: hidden;
     }
-    .receipt-section, .receipt-section * {
+
+    .receipt-section,
+    .receipt-section * {
         visibility: visible;
     }
+
     .receipt-section {
         display: flex;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
         margin: 0;
     }
 }

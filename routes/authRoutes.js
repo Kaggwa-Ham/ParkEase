@@ -7,7 +7,7 @@ const { isAdmin } = require("../middleware/auth");
 const Registration = require("../models/Registration");
 
 router.get("/signup", (req, res) => {
-  res.render("signUp");
+  res.render("registerUsers");
 });
 
 router.post("/signup", async (req, res) => {

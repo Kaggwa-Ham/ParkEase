@@ -54,31 +54,6 @@ router.post('/registerVehicle', upload.single('vehicleImage'), async (req, res) 
 
 });
 
-
-
-
-
-//Update vehicle routes
-//Show the update form
-router.get("/vehicles/update/:id", async (req, res) => {
-    try {
-        const vehicle = await Vehicle.findById(req.params.id)
-        if (!vehicle) return res.redirect("/vehicleList")
-        res.render("updateVehicle", { vehicle })
-    } catch (error) {
-        res.status(400).send("Unable to find vehicle in the Database.")
-    }
-})
-
-router.post("/vehicles/update/:id", async (req, res) => {
-    try {
-        await Vehicle.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect("/vehicleList")
-    } catch (error) {
-        res.status(400).send("Unable to update vehicle in the Database.")
-    }
-})
-
 router.get("/signout", (req, res) => {
     res.render("signout")
 })

@@ -56,6 +56,27 @@ router.get("/attendant", async (req, res) => {
   }
 });
 
+//Update user routes
+//Show the update form
+router.get("/users/update/:id", async (req, res) => {
+    try {
+        const user = await Registration.findById(req.params.id)
+        if (!user) return res.redirect("/usersList")
+        res.render("updateUser", { user })
+    } catch (error) {
+        res.status(400).send("Unable to find user in the Database.")
+    }
+})
+
+router.post("/users/update/:id", async (req, res) => {
+    try {
+        await Registration.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/usersList")
+    } catch (error) {
+        res.status(400).send("Unable to update user in the Database.")
+    }
+})
+
 
 router.post("/users/delete", async (req, res) => {
   try {

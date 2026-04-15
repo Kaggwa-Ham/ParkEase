@@ -1,0 +1,32 @@
+extends layout
+block content
+    div.form-card
+        form(method='post' action='/auth/signup')
+            div.userDetails
+                h2 Create an Account
+                p.underline
+                div 
+                    label(for='firstName') First Name
+                    input(type='text' placeholder='James' name='firstName')
+                div
+                    label(for='lastName') Last Name
+                    input(type='text' placeholder='Kisakye' name='lastName')
+                div
+                    label(for='email') Email Address
+                    input(type='email' placeholder='name@gmail.com' name='email')
+                div
+                    label(for='phone') Phone Number
+                    input(type='tel' placeholder='+256 700 000000' name='phoneNumber')
+                div
+                    label(for='role') Role
+                    select(name="role")
+                        option(value="") Select role 
+                        option(value="Admin") Admin 
+                        option(value="Manager") Manager 
+                        option(value="Attendant") Attendant   
+                div 
+                    label(for='password') Password
+                    input(type='password' placeholder='••••••••' name='password')
+                    p Must be at least 8 characters long.
+            button.btn-submit(type='submit') Register User
+            script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
