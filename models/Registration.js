@@ -18,11 +18,15 @@ const registrationSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  ninNumber: {
+    type: String,
+    trim: true
+  },
   role: {
     type: String
   }
 });
-registrationSchema.plugin(passportLocalMongoose, {usernameField: "email"})
+registrationSchema.plugin(passportLocalMongoose, { usernameField: "email" })
 
 
 module.exports = mongoose.model("Registration", registrationSchema);

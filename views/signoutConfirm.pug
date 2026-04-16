@@ -1,25 +1,28 @@
 extends layout
 block content
     div
-        h4 Fee calculation and Signout 
-        div.signoutConfirm.signoutTemplate
-            div.highlights
-                p Vehicle:
-                p #{vehicle.vehicleType} (#{vehicle.numberPlate})
-            div.highlights
-                p Arrival Time: 
-                p= new Date(vehicle.arrivalTime).toLocaleString()
-            div.highlights
-                p Amount Due: 
-                p UGX #{fee.toLocaleString()}
+        //- h4 Fee calculation and Signout 
+        //- div.signoutConfirm.signoutTemplate
+        //-     div.highlights
+        //-         p Vehicle:
+        //-         p #{vehicle.vehicleType} (#{vehicle.numberPlate})
+        //-     div.highlights
+        //-         p Arrival Time: 
+        //-         p= new Date(vehicle.arrivalTime).toLocaleString()
+        //-     div.highlights
+        //-         p Amount Due: 
+        //-         p UGX #{fee.toLocaleString()}
         div.form-card 
             form(method='post' action='/signout/confirm')
+                div.vehicleDetails
+                    h2 Vehicle Signout
+                    p.underline
+                    p Please enter your receipt to process your signout
+                    label(for='receiptNumber') Receipt Number
+                    input(type='text' placeholder="RCPT-abcd" name='receiptNumber')
                 div.attendantDetails
                     h2 Confirm Signout
                     p.underline
-                    input(type="hidden" name="receiptNumber" value=vehicle.receiptNumber)
-                    input(type="hidden" name="vehicleId" value=vehicle._id)
-                    input(type="hidden" name="amountPaid" value=fee)
                     label(for='receiverName') Receiver Name
                     input#receiverName(type='text' placeholder='John' name='receiverName')
                     label(for='phone') Phone Number
@@ -30,6 +33,6 @@ block content
                         option(value="Male") Male 
                         option(value="Female") Female   
                     label(for='ninNumber') NIN Number
-                    input#ninNumber(type='text' placeholder='••••••••' name='ninNumber')
+                    input#ninNumber(type='text' name='ninNumber'  disabled value=user.ninNumber)
                 button.btn-submit(type='submit') Confirm Signout
         script(src='')

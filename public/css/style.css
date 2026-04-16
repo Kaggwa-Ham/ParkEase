@@ -528,7 +528,7 @@ body .register-user {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 600px;
+    width: 450px;
 }
 
 .receiptIntro {
@@ -594,7 +594,6 @@ body .register-user {
 .print-btn:hover {
     background-color: #EA580C;
 } */
-
 
 
 

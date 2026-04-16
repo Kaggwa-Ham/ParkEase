@@ -29,7 +29,7 @@ const signoutSchema = new mongoose.Schema({
         ref: "Vehicle"
     },
     amountPaid: {
-        type: String
+        type: Number
     },
     
 })

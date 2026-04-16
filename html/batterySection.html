@@ -106,3 +106,163 @@
 </body>
 
 </html>
+
+
+
+<!-- 
+Now we’re cooking with electricity ⚡—this is how your app starts to feel alive.
+
+You want:
+
+Type receipt number → vehicle details appear instantly (no submit)
+
+That’s AJAX + a tiny backend endpoint. Let’s wire it cleanly.
+
+🧠 Big Picture Flow
+User types receiptNumber
+        ↓
+Frontend sends request (fetch)
+        ↓
+Backend finds vehicle
+        ↓
+Returns JSON
+        ↓
+Frontend fills the form automatically
+🛠️ 1. Backend Route (API)
+
+Create a route that returns vehicle data:
+
+router.get("/api/vehicle-by-receipt/:receiptNumber", async (req, res) => {
+    try {
+        const vehicle = await Vehicle.findOne({
+            receiptNumber: req.params.receiptNumber
+        });
+
+        if (!vehicle) {
+            return res.json({ success: false });
+        }
+
+        res.json({
+            success: true,
+            vehicle: vehicle
+        });
+
+    } catch (error) {
+        res.status(500).json({ success: false });
+    }
+});
+🎨 2. Your HTML Form
+
+Add fields that will be auto-filled:
+
+<input type="text" id="receiptInput" placeholder="Enter receipt number">
+
+<input type="text" id="vehicleType" readonly>
+<input type="text" id="plateNumber" readonly>
+<input type="text" id="arrivalTime" readonly>
+
+👉 readonly = user can’t edit, only see
+
+⚡ 3. Frontend JavaScript (Magic Part)
+<script>
+const receiptInput = document.getElementById("receiptInput");
+
+receiptInput.addEventListener("input", async () => {
+    const receiptNumber = receiptInput.value;
+
+    if (!receiptNumber) return;
+
+    try {
+        const res = await fetch(`/api/vehicle-by-receipt/${receiptNumber}`);
+        const data = await res.json();
+
+        if (data.success) {
+            document.getElementById("vehicleType").value = data.vehicle.vehicleType;
+            document.getElementById("plateNumber").value = data.vehicle.plateNumber;
+            document.getElementById("arrivalTime").value = data.vehicle.arrivalTime;
+        } else {
+            // Clear fields if not found
+            document.getElementById("vehicleType").value = "";
+            document.getElementById("plateNumber").value = "";
+            document.getElementById("arrivalTime").value = "";
+        }
+
+    } catch (err) {
+        console.log("Error fetching vehicle");
+    }
+});
+</script>
+🎯 What You’ll See
+
+As you type:
+
+RC123 → nothing
+RC12345 → 💥 vehicle details appear instantly
+
+Like autocomplete magic 🪄
+
+⚠️ Important Upgrade (Debounce 🧠)
+
+Right now it sends a request on every keystroke 😅
+Let’s calm it down:
+
+let timeout;
+
+receiptInput.addEventListener("input", () => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(async () => {
+        const receiptNumber = receiptInput.value;
+
+        if (!receiptNumber) return;
+
+        const res = await fetch(`/api/vehicle-by-receipt/${receiptNumber}`);
+        const data = await res.json();
+
+        if (data.success) {
+            document.getElementById("vehicleType").value = data.vehicle.vehicleType;
+        }
+    }, 500); // waits 0.5 seconds
+});
+
+👉 Now it waits before sending request ⏳
+
+🚀 Bonus Ideas (Next Level)
+
+You can upgrade this into:
+
+🔍 1. Search suggestions
+
+Show dropdown of matching receipts
+
+🎨 2. Highlight found vehicle
+
+Green glow when found ✅
+
+🚫 3. Error feedback
+
+“Receipt not found” message
+
+📷 4. QR code scanning
+
+Scan receipt instead of typing 🤯
+
+🧠 What You Just Built
+
+This is called:
+
+Client-server interaction without page reload
+
+That’s how modern apps feel fast ⚡
+
+🎯 Final Insight
+
+Before:
+
+Submit → wait → reload page 😴
+
+Now:
+
+Type → instant response ⚡
+
+If you want, I can turn this into a full polished UI (like real parking systems) with live validation and animations 🔥 -->

@@ -11,8 +11,14 @@ block content
     //- Transaction details
     div
       div.highlights
+        p Driver Name:
+        p= record.vehicleId.driverName
+      div.highlights
         p Date: 
         p= new Date(record.signoutTime).toLocaleDateString()
+      div.highlights
+        p Time In: 
+        p= new Date(record.vehicleId.arrivalTime).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
       div.highlights
         p Time Out: 
         p= new Date(record.signoutTime).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
