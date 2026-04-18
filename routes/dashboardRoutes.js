@@ -8,7 +8,7 @@ const Vehicle = require("../models/Vehicle_registration");
 const Battery = require("../models/BatteryRegistration");
 
 
-router.get("/admin", async (req, res) => {
+router.get("/admin", isAdmin, async (req, res) => {
   try {
     let users = await Registration.find().sort({ $natural: -1 })
 

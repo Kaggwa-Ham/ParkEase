@@ -10,6 +10,7 @@ const passport = require('passport');
 const Registration = require('./models/Registration')
 require("dotenv").config();
 
+
 // import routes
 const indexRoutes = require("./routes/indexRoutes");
 const authRoutes = require("./routes/authRoutes");

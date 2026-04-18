@@ -96,7 +96,7 @@ table {
     height: 80vh;
     width: 90%;
     border: 2px solid #e99241;
-
+    border-radius: 20px;
 }
 
 thead {
@@ -414,36 +414,7 @@ select {
     gap: 15px;
     margin-bottom: 30px;
 }
-
-.btn {
-    padding: 12px 20px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: #ff7a00;
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    background: #e56700;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid #ff7a00;
-    color: #ff7a00;
-}
-
-.btn-outline:hover {
-    background: #ff7a00;
-    color: #ffffff;
-}
-
+/* 
 .registerUser {
     display: flex;
     flex-direction: row;
@@ -459,7 +430,7 @@ body .register-user {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     padding: 100px;
-}
+} */
 
 
 .profile {

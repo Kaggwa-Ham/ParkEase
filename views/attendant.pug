@@ -38,7 +38,7 @@ block content
               each vehicle in vehicles 
                   tr
                       td
-                          img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "150px" height = "170px")
+                          img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "180px" height = "170px")
                       td #{vehicle.driverName}
                       td #{vehicle.phoneNumber}
                       td #{vehicle.vehicleType}
@@ -49,7 +49,7 @@ block content
                       td #{vehicle.status}  
                       td #{vehicle.receiptNumber} 
                       td 
-                        button.btn.btn-sm.btn-outline-primary(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 
+                        button.btn.btn-sm.btn-outline-warning.text-dark(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 
                           i.fa-solid.fa-copy.me-1 
                           | Copy      
           else 

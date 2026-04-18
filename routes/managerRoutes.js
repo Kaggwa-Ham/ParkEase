@@ -21,7 +21,7 @@ let storage = multer.diskStorage({
 let upload = multer({ storage: storage })
 
 router.get("/registerBattery", (req, res) => {
-    res.render("battery");
+    res.render("batterySection");
 });
 
 router.post("/registerBattery", upload.single('batteryImage'), async (req, res) => {
