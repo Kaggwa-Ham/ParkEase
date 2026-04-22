@@ -1,17 +1,6 @@
 extends layout
 block content
     div
-        //- h4 Fee calculation and Signout 
-        //- div.signoutConfirm.signoutTemplate
-        //-     div.highlights
-        //-         p Vehicle:
-        //-         p #{vehicle.vehicleType} (#{vehicle.numberPlate})
-        //-     div.highlights
-        //-         p Arrival Time: 
-        //-         p= new Date(vehicle.arrivalTime).toLocaleString()
-        //-     div.highlights
-        //-         p Amount Due: 
-        //-         p UGX #{fee.toLocaleString()}
         div.form-card 
             form(method='post' action='/signout/confirm')
                 div.vehicleDetails
@@ -33,6 +22,8 @@ block content
                         option(value="Male") Male 
                         option(value="Female") Female   
                     label(for='ninNumber') NIN Number
-                    input#ninNumber(type='text' name='ninNumber'  disabled value=user.ninNumber)
+                    input#ninNumber(type='text' name='ninNumber')
                 button.btn-submit(type='submit') Confirm Signout
         script(src='')
+
+ 

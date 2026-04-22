@@ -21,12 +21,34 @@ body {
     font-size: 1rem;
 }
 
+
+
 .btn-submit:hover {
     background-color: #F9FAFB;
     color: #f97316;
     padding: 15px;
     transform: translateY(-2px);
     border: 2px solid #F97316;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: #fff7ed;
+    color: #f97316;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-submit.active {
+    background-color: #fff7ed;
+    color: #f97316;
+}
+
+.tab-btn:hover {
+    transform: translateY(-3px);
 }
 
 .dashboard {
@@ -234,25 +256,7 @@ tbody tr:hover {
     margin-bottom: 40px;
 }
 
-.tab-btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    background-color: #fff7ed;
-    color: #f97316;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
 
-.tab-btn.active {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white;
-}
-
-.tab-btn:hover {
-    transform: translateY(-3px);
-}
 
 /* Options Layout */
 .battery-options {

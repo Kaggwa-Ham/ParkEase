@@ -2,7 +2,7 @@ let currentMode = "hire";
 
 function switchTab(mode) {
     currentMode = mode;
-    let buttons = document.getElementsByClassName("tab-btn");
+    let buttons = document.getElementsByClassName("btn-submit");
     buttons[0].classList.remove("active");
     buttons[1].classList.remove("active");
     if (mode == "hire") {
@@ -14,15 +14,11 @@ function switchTab(mode) {
 }
 
 function updatePrice() {
-
-    // Get selected vehicle type
     let vehicle = document.getElementById("vehicleType").value;
+    let price = 0;
 
-    let price = 0;   // default price
 
-    // If we are in HIRE mode
     if (currentMode == "hire") {
-
         if (vehicle == "car") {
             price = 30000;
         }
@@ -35,12 +31,8 @@ function updatePrice() {
         else if (vehicle == "boda") {
             price = 15000;
         }
-
     }
-
-    // If we are in BUY mode
     else if (currentMode == "buy") {
-
         if (vehicle == "car") {
             price = 250000;
         }
@@ -53,11 +45,9 @@ function updatePrice() {
         else if (vehicle == "boda") {
             price = 120000;
         }
-
     }
 
-    // Update the price display
-    if (price > 0) {
+    if (price) {
         document.getElementById("priceDisplay").innerText = price + " UGX";
         document.getElementById("finalFee").value = price + " UGX";
     } else {

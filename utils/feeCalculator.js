@@ -1,14 +1,10 @@
 function calculateParkingFee(vehicleType, arrivalDate) {
     const departureDate = new Date();
-    // Calculate duration in hours
     const durationMs = departureDate - arrivalDate;
     const durationHours = durationMs / (1000 * 60 * 60);
-
-    // Determine if arrival is day time (6:00am - 6:59pm) or night time (7:00pm - 5:59am) 
     const hour = arrivalDate.getHours();
     const isDayTime = hour >= 6 && hour < 19;
-
-    // Automated fee calculation rules
+    
     if (durationHours < 3) {
         switch (vehicleType) {
             case 'Truck': return 2000;

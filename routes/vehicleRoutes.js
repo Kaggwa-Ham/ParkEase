@@ -117,7 +117,7 @@ router.get("/signout/receipt/:id", async (req, res) => {
     try {
         const record = await Signout.findById(req.params.id).populate("vehicleId")
         if (!record) {
-            return res.redirect("/signout")
+            return res.redirect("/signout/confirm")
         }
         console.log(record)
         res.render("receipt", { record })

@@ -5,9 +5,10 @@ block content
       h1 Battery Service Center
       // HIRE / BUY SWITCH
       .battery-tabs
-        button.tab-btn.active(onclick="switchTab('hire')") Hire
-        button.tab-btn(onclick="switchTab('buy')") Buy
+        button.btn-submit.active(onclick="switchTab('hire')") Hire
+        button.btn-submit(onclick="switchTab('buy')") Buy
       // VEHICLE + PRICE SELECTION
+      form#batteryForm
       .battery-options
         .option-card
           h3 Select Vehicle Type
@@ -32,11 +33,5 @@ block content
           input(type='text')
           label Service Fee
           input#finalFee(type='text' readonly='')
-          button(type='submit') Confirm Service
-    .receipt-section
-      h2 Receipt
-      #receiptContent
-        p No receipt generated yet.
-      div
-        button.btn-submit PRINT
-  script(src='/')
+          button.btn-submit(type='submit') Confirm Service
+  script(src='/js/batterySection.js')
