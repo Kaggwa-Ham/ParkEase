@@ -1,14 +1,13 @@
 extends layout
 block content
-  .dashboard
-    .battery-page
-      h1 Battery Service Center
-      // HIRE / BUY SWITCH
-      .battery-tabs
-        button.btn-submit.active(onclick="switchTab('hire')") Hire
-        button.btn-submit(onclick="switchTab('buy')") Buy
-      // VEHICLE + PRICE SELECTION
-      form#batteryForm
+  .tyre-left
+    h1 Battery Service Center
+    .battery-tabs
+      button.btn-submit.active(onclick="switchTab('hire')") Hire
+      button.btn-submit(onclick="switchTab('buy')") Buy
+    br
+    // VEHICLE + PRICE SELECTION
+    form.form-card
       .battery-options
         .option-card
           h3 Select Vehicle Type
@@ -20,18 +19,18 @@ block content
             option(value='boda') Boda Boda
         .option-card.price-display
           h3 Service Price
-          p#priceDisplay 0 UGX
+          p#priceDisplay 
+
       // CUSTOMER DETAILS CARD
-      .battery-form-card
+      .driverDetails
         h2 Customer Details
-        form#batteryForm
-          label Customer Name
-          input(type='text')
-          label Phone Contact
-          input(type='text')
-          label Vehicle Number Plate
-          input(type='text')
-          label Service Fee
-          input#finalFee(type='text' readonly='')
-          button.btn-submit(type='submit') Confirm Service
-  script(src='/js/batterySection.js')
+        label Customer Name
+        input(type='text')
+        label Phone Contact
+        input(type='text')
+        label Vehicle Number Plate
+        input(type='text')
+        label Service Fee
+        input#finalFee(type='text' readonly='')
+        button.btn-submit(type='submit') Confirm Service
+    script(src='/js/batterySection.js')

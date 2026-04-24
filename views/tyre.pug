@@ -1,33 +1,45 @@
 extends layout
 block content 
-  .container.min-vh-100.d-flex.justify-content-center.align-items-center
-    .card.shadow-lg.border-0.rounded-4(style='width: 100%; max-width: 450px;')
-      .card-body.p-5
-        form(method='post' action='/tyreServices')
-          .mb-3
-            label.form-label.fw-semibold(for='tyreType') Tyre Type
-            select#tyreType(name="tyreType")
-                option(value="") Select a tyre size 
-                option(value="Bridgestone") Bridgestone
-                option(value="Goodyear") Goodyear
-                option(value="CEAT") CEAT
-                option(value="Continental") Continental
-          .mb-4
-            label.form-label.fw-semibold(for='tyreSize') Tyre Size
-            select#tyreSize(name="tyreSize")
-                option(value= "") Select a tyre size 
-                option(value= "15 Inch") 15 Inch
-                option(value= "16 Inch") 16 Inch
-                option(value= "17 Inch") 17 Inch
-          .mb-4      
-            label.form-label.fw-semibold(for='tyreServices') Tyre Services
-            select#tyreServices(name="tyreServices")
-                option(value= "") Select a tyre Service
-                option(value= "Pressure") Pressure
-                option(value= "Puncture-fixing") Puncture-fixing
-                option(value= "valves") Valves
-            .mb-4
-            label.form-label.fw-semibold(for='tyrePrice') Tyre Price
-            input#tyrePrice.form-control(type='text' placeholder='tyrePrice' name='tyrePrice')
-          button.btn.btn-primary.w-100.py-2.fw-bold.rounded-3(type='submit') Register Tyre 
-          
+  .tyre-left
+    h2 Tyre Clinic Service
+    form(method='post' action='/tyreServices')
+      .tyre-options
+        .option-card
+          h3 Select Vehicle Type
+          select#vehicleType
+            option(value='') Choose Vehicle
+            option(value='car') Personal Car
+            option(value='suv') SUV
+            option(value='truck') Truck
+            option(value='boda') Boda Boda
+        .option-card
+          h3 Select Tyre Size
+          select#tyreSize
+            option(value='') Choose Size
+            option 15 inch
+            option 17 inch
+            option 18 inch
+            option 20 inch
+        .option-card
+          h3 Select Service
+          select#serviceType
+            option(value='') Choose Service
+            option Pressure Filling
+            option Puncture Fixing
+            option Valve Replacement
+        .option-card.price-display
+          h3 Total Price
+          p#priceDisplay 0 UGX
+      // CUSTOMER DETAILS
+      .driverDetails
+        h2 Customer Details
+        p.underline
+        label Customer Name
+        input(type='text')
+        label Phone Contact
+        input(type='text')
+        label Vehicle Number Plate
+        input(type='text')
+        label Final Amount
+        input(type='text' readonly='')
+        button.btn-submit(type='submit') Confirm Service

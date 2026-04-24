@@ -51,14 +51,14 @@ body {
     transform: translateY(-3px);
 }
 
-.dashboard {
+/* .dashboard {
     display: flex;
     gap: 50px;
     justify-content: center;
     align-items: flex-start;
     margin-top: 40px;
     padding-left: 20px;
-}
+} */
 
 .dateFilter {
     display: flex;
@@ -250,10 +250,7 @@ tbody tr:hover {
 
 /* The Battery section  */
 
-.battery-page {
-    min-width: auto;
-    margin: auto;
-}
+
 
 .battery-page h1 {
     color: #f97316;
@@ -263,8 +260,14 @@ tbody tr:hover {
 /* Tabs */
 .battery-tabs {
     display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    border: 2px solid #f97316;
+    border-radius: 8px;
+    gap: 30px;
 }
 
 
@@ -277,16 +280,7 @@ tbody tr:hover {
     margin-bottom: 50px;
 }
 
-.option-card {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.08);
-}
 
-.option-card h3 {
-    margin-bottom: 20px;
-}
 
 select {
     width: 100%;
@@ -327,17 +321,7 @@ select {
 
 /* The tyre services  */
 
-.tyre-left {
-    flex: 3;
-}
-
-.tyre-left h2 {
-    color: #f97316;
-    margin-bottom: 30px;
-}
-
-/* OPTION GRID */
-.tyre-options {
+.tyre-options, .battery-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
@@ -349,14 +333,12 @@ select {
     background: white;
     padding: 20px;
     border-radius: 14px;
+    border: 2px solid #e56700;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     transition: 0.3s ease;
 }
 
-.option-card h3 {
-    margin-bottom: 15px;
-    color: #F97316;
-}
+
 
 .option-card select {
     width: 100%;
@@ -377,13 +359,6 @@ select {
     font-weight: 600;
     color: #EA580C;
 }
-
-
-
-
-
-
-
 
 .dashboard-container {
     width: 100%;
@@ -437,9 +412,6 @@ select {
     border-radius: 10px;
 
 }
-
-
-
 /* This is the Form styling i am gonna use */
 
 .form-card {
@@ -517,50 +489,6 @@ select {
         margin: 0;
     }
 }
-
-/* RECEIPT PANEL */
-/* .receipt-panel {
-    flex: 1.3;
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    height: fit-content;
-    position: sticky;
-    top: 30px;
-}
-
-.receipt-panel h3 {
-    color: #EA580C;
-    margin-bottom: 20px;
-}
-
-.receipt-panel hr {
-    margin: 20px 0;
-    border: none;
-    border-top: 1px solid #eee;
-}
-
-.print-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background-color: #F97316;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease;
-}
-
-.print-btn:hover {
-    background-color: #EA580C;
-} */
-
-
-
-
 
 
 .tyre-form-card {

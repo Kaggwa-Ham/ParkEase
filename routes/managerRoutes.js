@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const { isManager } = require("../middleware/auth")
-
-
 const Battery = require("../models/BatteryRegistration");
 const BatteryTransaction = require("../models/BatteryTransaction");
 const Tyre = require("../models/TyreTransaction");
