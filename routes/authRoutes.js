@@ -27,17 +27,16 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  failureRedirect: "/auth/login"
+    failureRedirect: "/auth/login"
 }), (req, res) => {
-  if(req.user.role === "Admin") {
-    res.redirect("/admin")
-  } else if(req.user.role === "Manager") {
-    res.redirect("/manager")
-  } else if(req.user.role === "Attendant") {
-    res.redirect("/attendant")
-  } else {
-    res.redirect("/");
-  } 
+    const redirectMap = {
+        "Admin": "/admin",
+        "Manager": "/manager",
+        "Attendant": "/attendant"
+    }
+
+    const destination = redirectMap[req.user.role] || "/";
+    res.redirect(destination);
 });
 
 router.get("/logout", (req, res, next) => {

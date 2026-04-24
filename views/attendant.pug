@@ -1,5 +1,6 @@
 extends layout
 block content 
+  h1 Attendant Dashboard
   .dashboard-container
     .stats
       .card
@@ -7,18 +8,18 @@ block content
         p #{vehicles.length}
       .card
         h3 Total Revenue
-        p UGX 450,000
+        p #{parkingRevenue}
       .card
         h3 Available Slots
-        p 16
-      .card
-        h3 Active Attendants
-        p 3
-    .quick-actions
-      a(href='/registerVehicle')
-        button.btn-submit Register Vehicle
-      a(href='/signout/confirm')
-        button.btn-submit Vehicle Sign Out
+        p= 50 - vehicles.length
+  form.dateFilter(action="/attendant" method="GET")   
+    div
+        label(for="dateFilter") Filter by Day:
+        input#dateFilter(type="date" name="date" value=selectedDate)
+    div
+        button.btn-submit(type="submit") 
+            i.fa-solid.fa-filter.me-1
+            | Filter
   table
       thead
           tr
@@ -30,7 +31,6 @@ block content
               th Vehicle Model
               th Vehicle Color
               th Arrival Time
-              th Status
               th Receipt Number
               th Action
       tbody
@@ -45,8 +45,7 @@ block content
                       td #{vehicle.numberPlate}
                       td #{vehicle.vehicleModel}
                       td #{vehicle.vehicleColor}
-                      td #{vehicle.arrivalTime}
-                      td #{vehicle.status}  
+                      td= vehicle.arrivalTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})  
                       td #{vehicle.receiptNumber} 
                       td 
                         button.btn.btn-sm.btn-outline-warning.text-dark(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 

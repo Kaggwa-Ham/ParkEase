@@ -19,6 +19,8 @@ body.dashboard-page
               li
                 a(href="/admin") Dashboard
               li 
+                a(href='/auth/signup') Register User 
+              li 
                 a(href="/usersList") Manage Users
             if user.role === "Manager"
               li 
@@ -33,9 +35,9 @@ body.dashboard-page
               li
                 a(href="/attendant") Dashboard
               li 
-                a(href="/registerVehicle") Check in
+                a(href="/registerVehicle") Register Vehicle
               li 
-                a(href="/signout") Check out
+                a(href="/signout/confirm") Vehicle Signout
       .nav-right
         if user 
           div.profile

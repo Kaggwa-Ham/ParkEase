@@ -54,23 +54,6 @@ router.post('/registerVehicle', upload.single('vehicleImage'), async (req, res) 
 
 });
 
-// router.get("/signout", (req, res) => {
-//     res.render("signoutConfirm")
-// })
-
-// router.post("/signout/verify", async (req, res) => {
-//     try {
-//         const vehicle = await Vehicle.findOne({ receiptNumber: req.body.receiptNumber, status: "Parked" })
-//         if (!vehicle) {
-//             return res.render("signout")
-//         }
-//         const fee = calculateParkingFee(vehicle.vehicleType, vehicle.arrivalTime)
-//         res.render("signoutConfirm", { vehicle, fee })
-//     } catch (error) {
-//         res.render("signout")
-//     }
-// });
-
 router.get("/signout/confirm", (req, res) => {
     res.render("signoutConfirm")
 })

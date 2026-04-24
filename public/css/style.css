@@ -60,6 +60,17 @@ body {
     padding-left: 20px;
 }
 
+.dateFilter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    margin: 0;
+    border: 2px solid #e56700;
+    border-radius: 8px;
+}
 
 
 .admin-dashboard {
@@ -418,23 +429,6 @@ select {
     gap: 15px;
     margin-bottom: 30px;
 }
-/* 
-.registerUser {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-body .register-user {
-    background-color: #F9FAFB;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    padding: 100px;
-} */
 
 
 .profile {
@@ -474,13 +468,7 @@ body .register-user {
     border-bottom: 2px solid #e56700;
 }
 
-.singoutConfirm {
-    border: 2px solid black;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
-}
+
 
 .highlights {
     display: flex;

@@ -53,9 +53,7 @@ router.get("/manager", async (req, res) => {
         // ]
         // )
 
-        res.render("manager", { batteries, 
-            // batteriesTotal: totalAmountBatteries[0]
-         })
+        res.render("manager", { batteries } )
 
     } catch (error) {
         console.log(error)

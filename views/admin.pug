@@ -1,45 +1,49 @@
 extends layout
 block content 
-    .admin-dashboard
-    .admin-dashboard1
-        .registerUser
-        h1 Administrator Dashboard
-        .text-center.mt-4
-            p.mb-0.text-muted
-              a.text-decoration-none.fw-semibold(href='/auth/signup')
-                button.btn-submit Register User    
+    h1 Administrator Dashboard  
     .stats
         .card
             h3 Parking Revenue
-            p#parkingTotal 0 UGX
+            p UGX #{parkingRevenue.toLocaleString()}
         .card
             h3 Battery Section
-            p#batteryTotal 0 UGX
+            p UGX #{tyreRevenue.toLocaleString()}
         .card
             h3 Tyre Clinic
-            p#tyreTotal 0 UGX
+            p UGX #{batteryRevenue.toLocaleString()}
         .card.grand
             h3 Total Revenue
-            p#grandTotal 0 UGX
-    h2.userDetails All Users
+            p UGX #{grandTotal.toLocaleString()}
+     
+    form.dateFilter(action="/admin" method="GET")   
+            div
+                label(for="dateFilter") Filter by Day:
+                input#dateFilter(type="date" name="date" value=selectedDate)
+            div
+                button.btn-submit(type="submit") 
+                    i.fa-solid.fa-filter.me-1
+                    | Filter
+    h2 Signed-Out Vehicles for #{selectedDate}
+        p.underline
     table
         thead
             tr
-                th First Name
-                th Last Name
-                th Email
-                th PhoneNumber
-                th Role
+                th Receipt No.
+                th Receiver Name
+                th Vehicle Plate
+                th Sign-Out Time
+                th Amount Paid
+        
         tbody
-            if users.length 
-                each user in users 
+            if signedOutVehicles && signedOutVehicles.length > 0
+                each record in signedOutVehicles
                     tr
-                        td #{user.firstName}
-                        td #{user.lastName}
-                        td #{user.email}
-                        td #{user.phoneNumber}
-                        td #{user.role}
-            else 
-                tr 
-                    td No users found 
+                        td #{record.receiptNumber}
+                        td #{record.receiverName}
+                        td #{record.vehicleId.numberPlate}
+                        td= new Date(record.signoutTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                        td UGX #{record.amountPaid.toLocaleString()}
+                else
+                    tr
+                        td No vehicles were signed out on this date.
         script(src='javaScript/report.js')

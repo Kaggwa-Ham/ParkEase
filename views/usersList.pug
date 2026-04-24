@@ -9,9 +9,8 @@ block content
                 th Email
                 th PhoneNumber
                 th Role
-                if user.role === "Admin"
-                      th Update
-                      th Delete
+                th Update
+                th Delete
         tbody
             if users.length 
                 each user in users 
@@ -21,15 +20,14 @@ block content
                         td #{user.email}
                         td #{user.phoneNumber}
                         td #{user.role}
-                        if user.role !== "Admin"
-                            td 
-                                a.btn.btn-sm.btn-outline-warning.text-dark(href=`/users/update/${user._id}`)
-                                    i.fa-solid.fa-pen-to-square 
-                            td 
-                                form(method="post", action="/users/delete")
-                                    input(type="hidden", name="id", value=user._id)
-                                    button.btn.btn-sm.btn-outline-danger.text-dark(type="submit")
-                                        i.fa-solid.fa-trash
+                        td 
+                            a.btn.btn-sm.btn-outline-warning.text-dark(href=`/users/update/${user._id}`)
+                                i.fa-solid.fa-pen-to-square 
+                        td 
+                            form(method="post", action="/users/delete")
+                                input(type="hidden", name="id", value=user._id)
+                                button.btn.btn-sm.btn-outline-danger.text-dark(type="submit")
+                                    i.fa-solid.fa-trash
             else 
                 tr 
                     td No users found            
