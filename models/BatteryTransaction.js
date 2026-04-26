@@ -9,11 +9,20 @@ const batteryTransactionSchema = new mongoose.Schema({
     },
     transactionType: {
         type: String,
-        enum: ["Hire", "Sale"],
+        enum: ["Hire", "Sale"]
     },
     transactionDate: {
         type: Date,
         default: Date.now
+    },
+    name: {
+        type: String,
+    },
+    phoneNumber: {
+        type: String,
+    },
+    price: {
+        type: Number
     }
 });
 

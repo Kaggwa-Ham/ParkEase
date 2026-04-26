@@ -1,36 +1,29 @@
 extends layout
 block content
-  .tyre-left
-    h1 Battery Service Center
-    .battery-tabs
-      button.btn-submit.active(onclick="switchTab('hire')") Hire
-      button.btn-submit(onclick="switchTab('buy')") Buy
-    br
-    // VEHICLE + PRICE SELECTION
-    form.form-card
-      .battery-options
-        .option-card
-          h3 Select Vehicle Type
-          select#vehicleType(onchange='updatePrice()')
-            option(value='') Choose Vehicle
-            option(value='car') Personal Car
-            option(value='truck') Truck
-            option(value='taxi') Taxi
-            option(value='boda') Boda Boda
-        .option-card.price-display
-          h3 Service Price
-          p#priceDisplay 
+  form(method='post' action='/batteryServices')
+    div.form-card
+      div.batteryDetails
+        h2 Battery Details
+        p.underline
+        label(for='batteryId') Select Battery
+        select#batteryId(name="batteryId")
+          option(value="" selected disabled) Choose battery
+          if batteries && batteries.length > 0
+            each battery in batteries
+                option(value=battery._id ) #{battery.batteryType} - #{battery.batterySize} (Hire: #{battery.hire}, Sale: #{battery.sale})
+        label(for='transactionType') Transaction Type
+        select#transactionType(name="transactionType")
+          option(value="") Select Transaction
+          option(value="Hire") Hire
+          option(value="Sale") Sale
+        label(for='numberPlate') Number Plate
+        input#numberPlate(type='text' name='numberPlate')
 
-      // CUSTOMER DETAILS CARD
-      .driverDetails
+      div.driverDetails
         h2 Customer Details
-        label Customer Name
-        input(type='text')
-        label Phone Contact
-        input(type='text')
-        label Vehicle Number Plate
-        input(type='text')
-        label Service Fee
-        input#finalFee(type='text' readonly='')
-        button.btn-submit(type='submit') Confirm Service
-    script(src='/js/batterySection.js')
+        p.underline
+        label(for='name') Customer Name
+        input#name(type='text' name="name")
+        label(for='phoneNumber') Phone Contact
+        input#phoneNumber(type='text' name="phoneNumber")
+    button.btn-submit(type='submit') Confirm Service

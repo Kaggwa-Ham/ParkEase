@@ -1,13 +1,11 @@
 extends layout
 block content 
-    .dashboard-top
-    .stats
-        .card
-            h3 Available Batteries
-            p #{batteries.length}
-        .card
-            h3 Available Tyres
-            p 3
+    h2 QUICK ACTIONS
+    div.quick-actions
+        a(href="/registerBattery") 
+            button.btn-submit Add Battery 
+        a(href="/batteryTransaction") 
+            button.btn-submit Battery Transaction
     table
         thead
             tr

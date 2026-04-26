@@ -428,7 +428,8 @@ select {
 .driverDetails,
 .vehicleDetails,
 .attendantDetails,
-.userDetails {
+.userDetails,
+.batteryDetails {
     border: 2px solid #e56700;
     margin-top: 10px;
     margin-bottom: 10px;

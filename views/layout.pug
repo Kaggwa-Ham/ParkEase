@@ -26,9 +26,7 @@ body.dashboard-page
               li 
                 a(href="/manager") Dashboard
               li 
-                a(href="/registerBattery") Add Battery 
-              li 
-                a(href="/batteryServices") Battery Transaction
+                a(href="/batteryServices") Battery Services
               li 
                 a(href="/tyreServices") Tyre Clinic
             if user.role === "Attendant"
@@ -37,7 +35,7 @@ body.dashboard-page
               li 
                 a(href="/registerVehicle") Register Vehicle
               li 
-                a(href="/signout/confirm") Vehicle Signout
+                a(href="/signoutconfirm") Vehicle Signout
       .nav-right
         if user 
           div.profile
