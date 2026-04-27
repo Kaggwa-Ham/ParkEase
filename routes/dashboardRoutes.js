@@ -8,10 +8,10 @@ const Vehicle = require("../models/Vehicle_registration");
 const Battery = require("../models/BatteryRegistration");
 const Signout = require("../models/Signout");
 const BatteryTransaction = require("../models/BatteryTransaction");
-const TyreTransaction = require("../models/TyreTransaction");
+const TyreTransaction = require("../models/TyreRegistration");
 
 
-router.get("/admin", isAdmin, async (req, res) => {
+router.get("/admin", async (req, res) => {
   try {
     let users = await Registration.find().sort({ $natural: -1 })
 
@@ -40,7 +40,7 @@ router.get("/admin", isAdmin, async (req, res) => {
     }, 0);
 
     // 2. Query Tyre transactions
-    const tyreTransactions = await TyreTransaction.find({
+    const tyreTransaction = await TyreTransaction.find({
       transactionDate: {
         $gte: startOfDay,
         $lte: endOfDay,
@@ -48,8 +48,8 @@ router.get("/admin", isAdmin, async (req, res) => {
     });
 
     // Calculate Tyre revenue
-    const tyreRevenue = tyreTransactions.reduce((total, record) => {
-      return total + (record.amountPaid || 0);
+    const tyreRevenue = tyreTransaction.reduce((total, record) => {
+      return total + (record.price || 0);
     }, 0);
 
     // 3. Query Battery transactions
@@ -62,7 +62,7 @@ router.get("/admin", isAdmin, async (req, res) => {
 
     // Calculate Battery revenue
     const batteryRevenue = batteryTransactions.reduce((total, record) => {
-      return total + (record.amountPaid || 0);
+      return total + (record.price || 0);
     }, 0);
 
     //Calculate Grand Total
@@ -91,10 +91,6 @@ router.get("/usersList", async (req, res) => {
     res.status(400).send("Unable to find users in the Database.")
   }
 })
-
-router.get("/signout", (req, res) => {
-  res.render("vehicleSignout");
-});
 
 router.get("/attendant", async (req, res) => {
   try {
@@ -125,7 +121,7 @@ router.get("/attendant", async (req, res) => {
     res.render("attendant", {
       vehicles,
       selectedDate,
-      parkingRevenue,
+      parkingRevenue
     })
   } catch (error) {
     res.status(400).send("Unable to find attendant in the Database.")

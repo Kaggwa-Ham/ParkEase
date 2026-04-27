@@ -4,7 +4,7 @@ const multer = require("multer");
 const { isManager } = require("../middleware/auth")
 const Battery = require("../models/BatteryRegistration");
 const BatteryTransaction = require("../models/BatteryTransaction");
-const Tyre = require("../models/TyreTransaction");
+const Tyre = require("../models/TyreRegistration");
 
 
 //Image upload configurations
@@ -59,7 +59,7 @@ router.post("/tyreServices", async (req, res) => {
         const newTyre = new Tyre(req.body);
         console.log(newTyre);
         await newTyre.save();
-        res.redirect("/tyreServices");
+        res.redirect("/manager");
     } catch (error) {
         console.error(error);
         res.render("tyre");
@@ -111,15 +111,6 @@ router.get("/batteryServices", async (req, res) => {
     }
 })
 
-router.get("/batteryTransaction", async (req, res) => {
-    try {
-        const batteries = await Battery.find({ status: "Available" })
-        res.render("batteryTransaction", { batteries });
-    } catch (error) {
-        console.error(error.message)
-    }
-});
-
 router.post("/batteryServices", async (req, res) => {
     try {
         //Save new Transaction in the Battery Transaction Model
@@ -135,6 +126,17 @@ router.post("/batteryServices", async (req, res) => {
         res.render("batteryTransaction");
     }
 });
+
+router.get("/batteryTransaction", async (req, res) => {
+    try {
+        const batteries = await Battery.find({ status: "Available" })
+        res.render("batteryTransaction", { batteries });
+    } catch (error) {
+        console.error(error.message)
+    }
+});
+
+
 
 
 module.exports = router;

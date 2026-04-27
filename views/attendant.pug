@@ -7,19 +7,8 @@ block content
         h3 Parked Vehicles
         p #{vehicles.length}
       .card
-        h3 Total Revenue
-        p #{parkingRevenue}
-      .card
         h3 Available Slots
         p= 50 - vehicles.length
-  form.dateFilter(action="/attendant" method="GET")   
-    div
-        label(for="dateFilter") Filter by Day:
-        input#dateFilter(type="date" name="date" value=selectedDate)
-    div
-        button.btn-submit(type="submit") 
-            i.fa-solid.fa-filter.me-1
-            | Filter
   table
       thead
           tr

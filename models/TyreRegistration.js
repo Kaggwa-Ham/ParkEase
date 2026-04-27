@@ -1,27 +1,33 @@
 const mongoose = require('mongoose');
 const batteryRegistration = new mongoose.Schema({
-    batteryType: {
+    model: {
         type: String,
+        // enum: ["Michelin", "Bridgestone", "BFGoodrich"]
     },
-
-    batterySize: {
+    size: {
         type: String,
+        // enum: ["15_inch", "17_inch", "18_inch"]
     },
-    batteryImage: {
-        type: String
+    service: {
+        type: String,
+        // enum: ["pressureFilling", "punctureFixing", "valveReplacement"]
     },
-    amountPaid: {
+    price: {
         type: Number
     },
-    status: {
-        type: String,
-        enum: ["Available", "Hired", "Sold"],
-        default: "Available"
+    name: {
+        type: String
     },
-    dateAdded: {
+    phoneNumber: {
+        type: Number
+    },
+    numberPlate: {
+        type: String
+    },
+    transactionDate: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model("Battery", batteryRegistration);
+module.exports = mongoose.model("Tyre", batteryRegistration);

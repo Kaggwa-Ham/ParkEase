@@ -1,45 +1,40 @@
 extends layout
 block content 
   .tyre-left
-    h2 Tyre Clinic Service
     form(method='post' action='/tyreServices')
       .tyre-options
         .option-card
-          h3 Select Vehicle Type
-          select#vehicleType
-            option(value='') Choose Vehicle
-            option(value='car') Personal Car
-            option(value='suv') SUV
-            option(value='truck') Truck
-            option(value='boda') Boda Boda
+          h3 Select Tyre Type
+          select#vehicleType(name="model")
+            option(value='') Choose Tyre
+            option(value='Michelin') Michelin (UGX 30,000)
+            option(value='Bridgestone') Bridgestone (UGX 40,000)
+            option(value='BFGoodrich') BFGoodrich (UGX 35,000)
         .option-card
           h3 Select Tyre Size
-          select#tyreSize
+          select#tyreSize(name="size")
             option(value='') Choose Size
-            option 15 inch
-            option 17 inch
-            option 18 inch
-            option 20 inch
+            option(value='15_inch')  15 inch
+            option(value='17_inch')  17 inch
+            option(value='18_inch')  18 inch
         .option-card
           h3 Select Service
-          select#serviceType
+          select#serviceType(name="service")
             option(value='') Choose Service
-            option Pressure Filling
-            option Puncture Fixing
-            option Valve Replacement
+            option(value='pressureFilling')  Pressure Filling (UGX 500)
+            option(value='punctureFixing')  Puncture Fixing (UGX 5000)
+            option(value='valveReplacement')  Valve Replacement  (UGX 5000)
         .option-card.price-display
-          h3 Total Price
-          p#priceDisplay 0 UGX
+          h2 Final Price
+          input(type="number" name="price")
       // CUSTOMER DETAILS
       .driverDetails
         h2 Customer Details
         p.underline
         label Customer Name
-        input(type='text')
+        input(type='text' name="name")
         label Phone Contact
-        input(type='text')
+        input(type='number' name="phoneNumber")
         label Vehicle Number Plate
-        input(type='text')
-        label Final Amount
-        input(type='text' readonly='')
+        input(type='text' name="numberPlate")
         button.btn-submit(type='submit') Confirm Service
