@@ -2,7 +2,7 @@ extends layout
 block content
     div
         div.form-card 
-            form(method='post' action='/signout/confirm')
+            form#signoutVehicle(method='post' action='/signout/confirm')
                 div.vehicleDetails
                     h2 Vehicle Signout
                     p.underline
@@ -15,7 +15,7 @@ block content
                     label(for='receiverName') Receiver Name
                     input#receiverName(type='text' placeholder='John' name='receiverName')
                     label(for='phone') Phone Number
-                    input#phone(type='tel' placeholder='+256 700 000000' name='phoneNumber')
+                    input#phoneNumber(type='tel' placeholder='+256 700 000000' name='phoneNumber')
                     label(for='gender') Gender
                     select#gender(name="gender")
                         option(value="") Select your gender
@@ -23,7 +23,8 @@ block content
                         option(value="Female") Female   
                     label(for='ninNumber') NIN Number
                     input#ninNumber(type='text' name='ninNumber')
+                    div#resultMessage
                 button.btn-submit(type='submit') Confirm Signout
-        script(src='')
+        script(src='/js/vehicleSignout.js')
 
  

@@ -1,11 +1,11 @@
 extends layout
 block content 
   .tyre-left
-    form(method='post' action='/tyreServices')
+    form#tyreForm(method='post' action='/tyreServices')
       .tyre-options
         .option-card
           h3 Select Tyre Type
-          select#vehicleType(name="model")
+          select#tyreType(name="model")
             option(value='') Choose Tyre
             option(value='Michelin') Michelin (UGX 30,000)
             option(value='Bridgestone') Bridgestone (UGX 40,000)
@@ -26,15 +26,17 @@ block content
             option(value='valveReplacement')  Valve Replacement  (UGX 5000)
         .option-card.price-display
           h2 Final Price
-          input(type="number" name="price")
+          input#finalPrice(type="number" name="price")
       // CUSTOMER DETAILS
       .driverDetails
         h2 Customer Details
         p.underline
         label Customer Name
-        input(type='text' name="name")
+        input#name(type='text' name="name")
         label Phone Contact
-        input(type='number' name="phoneNumber")
+        input#phoneNumber(type='number' name="phoneNumber")
         label Vehicle Number Plate
-        input(type='text' name="numberPlate")
+        input#numberPlate(type='text' name="numberPlate")
+        div#resultMessage
         button.btn-submit(type='submit') Confirm Service
+  script(src="/js/tyreValidation.js")
