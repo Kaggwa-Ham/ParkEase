@@ -9,6 +9,7 @@ block content
       .card
         h3 Available Slots
         p= 50 - vehicles.length
+  div#resultMessage
   table
       thead
           tr
@@ -37,12 +38,12 @@ block content
                       td= vehicle.arrivalTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})  
                       td #{vehicle.receiptNumber} 
                       td 
-                        button.btn.btn-sm.btn-outline-warning.text-dark(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`) 
+                        button.btn.btn-sm.btn-outline-warning.text-dark(onclick=`copyReceipt("${vehicle.receiptNumber}")`) 
                           i.fa-solid.fa-copy.me-1 
-                          | Copy      
+                            | Copy      
           else 
               tr 
                   td No vehicles found
          
-  script(src='javaScript/dashboard.js')
+  script(src='/js/receiptCode.js')
   
