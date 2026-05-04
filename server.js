@@ -7,7 +7,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const expressSession = require('express-session');
 const passport = require('passport');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 
 
 // import registration model 
