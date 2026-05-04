@@ -1,6 +1,6 @@
 //1.Dependencies
 
-equire("dotenv").config();
+require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
@@ -12,7 +12,7 @@ const MongoStore = require('connect-mongo').default;
 
 // import registration model 
 const Registration = require('./models/Registration')
-require("dotenv").config();
+
 
 
 // import routes
