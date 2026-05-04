@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const expressSession = require('express-session');
 const passport = require('passport');
+const MongoStore = require('connect-mongo');
 
 
 // import registration model 
@@ -46,8 +47,9 @@ app.use(express.urlencoded({ extended: false })); //this helps to parse data fro
 app.use(expressSession({
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: false
-}))
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: process.env.DATABASE })
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -75,5 +77,12 @@ app.use((req, res) => {
   res.status(404).send("Oops! Route not found.");
 });
 
-app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+// app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 
+// Keep this for local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+}
+
+// Add this export for Vercel
+module.exports = app;
