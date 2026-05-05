@@ -47,12 +47,12 @@ app.set("views", path.join(__dirname, "views")); //specifies the views' director
 app.use(express.static(path.join(__dirname, "public"))); //this helps to serve static files like css, js, images from the public folder
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'))
 app.use(express.urlencoded({ extended: false })); //this helps to parse data from forms
-app.use(expressSession({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.DATABASE })
-}));
+// app.use(expressSession({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false,
+//   store: MongoStore.create({ mongoUrl: process.env.DATABASE })
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
