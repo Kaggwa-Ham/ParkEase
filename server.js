@@ -29,7 +29,49 @@ const PORT = 3002;
 
 // 3.Configurations
 //Mongodb settings- setting up connections to the database.
-mongoose.connect(process.env.DATABASE);
+
+
+let isConnected = false;
+
+const connectDB = async () => {
+
+  if (isConnected) return;
+
+  try {
+
+    const db = await mongoose.connect(process.env.DATABASE, {
+
+      useNewUrlParser: true,
+
+      useUnifiedTopology: true,
+
+    });
+
+    isConnected = db.connections[0].readyState === 1;
+
+    console.log("MongoDB connected");
+
+  } catch (err) {
+
+    console.error("MongoDB error:", err);
+
+    throw err;
+
+  }
+
+};
+
+app.use(async (req, res, next) => {
+
+  await connectDB();
+
+  next();
+
+});
+
+
+
+// mongoose.connect(process.env.DATABASE);
 mongoose.connection
   .once("open", () => {
     console.log("mongoose connection open");
@@ -54,7 +96,7 @@ app.use(express.urlencoded({ extended: false })); //this helps to parse data fro
 //   store: MongoStore.create({ mongoUrl: process.env.DATABASE })
 // }));
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 /* PASSPORT LOCAL AUTHENTICATION */
 passport.use(Registration.createStrategy());
