@@ -17,6 +17,7 @@ const authRoutes = require("./routes/authRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const managerRoutes = require("./routes/managerRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+// const trialRoutes = require("./routes/trialRoutes")
 
 
 // 2.Instantiations
@@ -70,6 +71,7 @@ app.use("/auth", authRoutes);
 app.use("/", vehicleRoutes);
 app.use("/", managerRoutes);
 app.use("/", dashboardRoutes);
+
 
 app.use((req, res) => {
   res.status(404).send("Oops! Route not found.");

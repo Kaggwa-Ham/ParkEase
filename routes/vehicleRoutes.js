@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require("multer");
 const { isAttendant } = require("../middleware/auth");
 const calculateParkingFee = require("../utils/feeCalculator");
+const Trial = require("../models/Trial")
 
 
 //Import model files
@@ -44,7 +45,7 @@ router.post('/registerVehicle', upload.single('vehicleImage'), async (req, res) 
             receiptNumber: uniqueTicket,
             vehicleImage: req.file.path
         })
-        console.log(newVehicle)
+        // console.log(newVehicle)
         await newVehicle.save();
         res.redirect('/attendant')
     } catch (error) {
@@ -111,5 +112,30 @@ router.get("/signout/receipt/:id", async (req, res) => {
 });
 
 
+
+
+
+router.get("/trial", async (req, res) => {
+    try {
+        const trial = await Trial.find().sort({ $natural: -1 });
+        res.render("trial", { trial })
+    } catch (error) {
+        res.send("Unable to open")
+    }
+})
+
+router.post("/trial", async (req, res) => {
+    try {
+        const newTrial = new Trial({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName
+        });
+        await newTrial.save();
+        res.redirect("/trial");
+    } catch (error) {
+        console.error(error);
+        res.render("trial");
+    }
+});
 
 module.exports = router;

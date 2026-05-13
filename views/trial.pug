@@ -1,0 +1,27 @@
+extends layout
+block content
+    div.form-card
+        form#trialForm(method='post')
+            div#resultMessage
+            div.userDetails
+                h2 Create an Account
+                p.underline
+                div 
+                    label(for='firstName') First Name
+                    input#firstName.Name(type='text' placeholder='James' name='firstName')
+                div
+                    label(for='lastName') Last Name
+                    input#lastName.Name(type='text' placeholder='Kisakye' name='lastName')
+            button.btn-submit(type='submit') Register User
+    table
+        thead
+            tr
+                th First Name
+                th Last Name
+        
+        tbody
+            each record in trial 
+                tr
+                    td #{record.firstName}
+                    td #{record.lastName}
+    script(src='/js/trial.js')

@@ -359,12 +359,22 @@ select {
 }
 
 .validationError {
-    border: 2px solid #e56700;
+    border: 2px solid red;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 8px;
 }
+
+.validationAccept {
+    border: 2px solid green;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
 
 .underline {
     border-bottom: 2px solid #e56700;
