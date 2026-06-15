@@ -12,6 +12,7 @@ const ninRegex = /^(CM|CF)[0-9]{2}[A-Z0-9]{10}$/;
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
+
   const transactionType = document.getElementById("transactionType").value.trim();
   const numberPlate = document.getElementById("numberPlate").value.trim();
   const price = document.getElementById("price").value.trim();
